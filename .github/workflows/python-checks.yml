@@ -60,4 +60,5 @@ jobs:
         run: python tests/test_train_test_split.py
       
       
-      
+      - name: Verify published tuned ROC summary
+        run: python tests/test_tuned_roc_summary.py
