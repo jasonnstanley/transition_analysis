@@ -47,3 +47,10 @@ jobs:
         run: |
           python -c "from pathlib import Path; assert not Path('data/raw/33130_autumn_2026.csv').exists()"
           python -c "from pathlib import Path; assert not Path('data/secure/student_crosswalk.csv').exists()"
+          
+          
+      - name: Run public data integrity test
+        run: python tests/test_public_data.py      
+        
+        
+        
