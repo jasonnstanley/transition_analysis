@@ -27,7 +27,7 @@ The project combines:
 
 ## Research context
 
-The current case study analyses Autumn 2026 enrolments in 33130 Mathematical Modelling 1.
+The current case study analyses Autumn 2026 enrolments in a first stage undergraduate Mathematics subject.
 
 The workflow was designed to support transparent and reproducible investigation of student transition pathways into first-year university mathematics.
 
