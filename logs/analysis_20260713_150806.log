@@ -1,0 +1,24 @@
+2026-07-13 15:08:06,318  INFO     ============================================================
+2026-07-13 15:08:06,319  INFO     Transition Analysis Toolkit
+2026-07-13 15:08:06,320  INFO     ============================================================
+2026-07-13 15:08:06,320  INFO     Transition Analysis Toolkit 0.1.0
+2026-07-13 15:08:06,320  INFO     Project root: C:\Users\115396\Python\transition_analysis
+2026-07-13 15:08:06,320  INFO     Starting run_summary.py
+2026-07-13 15:08:07,062  INFO     Completed run_summary.py in 0.74 seconds
+2026-07-13 15:08:07,062  INFO     Starting run_report.py
+2026-07-13 15:08:07,753  INFO     Completed run_report.py in 0.69 seconds
+2026-07-13 15:08:07,753  INFO     Starting run_tables.py
+2026-07-13 15:08:08,437  INFO     Completed run_tables.py in 0.68 seconds
+2026-07-13 15:08:08,437  INFO     Starting run_plots.py
+2026-07-13 15:08:12,539  INFO     Completed run_plots.py in 4.10 seconds
+2026-07-13 15:08:12,540  INFO     Starting run_statistics.py
+2026-07-13 15:08:14,062  INFO     Completed run_statistics.py in 1.52 seconds
+2026-07-13 15:08:14,062  INFO     Starting run_models.py
+2026-07-13 15:08:17,539  INFO     Completed run_models.py in 3.48 seconds
+2026-07-13 15:08:17,539  INFO     Starting run_trees.py
+2026-07-13 15:08:22,801  INFO     Completed run_trees.py in 5.26 seconds
+2026-07-13 15:08:22,801  INFO     Starting run_forests.py
+2026-07-13 15:08:27,900  INFO     Completed run_forests.py in 5.10 seconds
+2026-07-13 15:08:27,900  INFO     Starting run_ml_comparison.py
+2026-07-13 15:08:32,985  INFO     Completed run_ml_comparison.py in 5.08 seconds
+2026-07-13 15:08:32,985  INFO     Analysis complete in 26.67 seconds.

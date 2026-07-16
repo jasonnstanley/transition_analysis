@@ -1,0 +1,126 @@
+{
+  "analysis_name": "Cross-validated tree-model tuning",
+  "schema_name": "transition_analysis_research_schema",
+  "schema_version": "0.1.0",
+  "dataset": "data\\processed\\transition_research.csv",
+  "dataset_rows": 1473,
+  "dataset_columns": 19,
+  "random_seed": 33130,
+  "test_size": 0.2,
+  "training_rows": 1178,
+  "test_rows": 295,
+  "cross_validation_folds": 5,
+  "selection_metric": "roc_auc",
+  "models": [
+    {
+      "model": "Tuned Decision Tree",
+      "dataset": "Without Risk Index",
+      "best_cv_score": 0.6993855927889994,
+      "best_parameters": {
+        "criterion": "entropy",
+        "max_depth": null,
+        "min_samples_leaf": 5,
+        "min_samples_split": 40
+      },
+      "test_metrics": {
+        "test_rows": 295,
+        "passes": 236,
+        "non_passes": 59,
+        "accuracy": 0.6847457627118644,
+        "balanced_accuracy": 0.6949152542372881,
+        "precision": 0.903954802259887,
+        "recall": 0.6779661016949152,
+        "f1": 0.774818401937046,
+        "roc_auc": 0.7557095662166046
+      }
+    },
+    {
+      "model": "Tuned Decision Tree",
+      "dataset": "With Risk Index",
+      "best_cv_score": 0.7072376136524223,
+      "best_parameters": {
+        "criterion": "entropy",
+        "max_depth": 6,
+        "min_samples_leaf": 20,
+        "min_samples_split": 2
+      },
+      "test_metrics": {
+        "test_rows": 295,
+        "passes": 236,
+        "non_passes": 59,
+        "accuracy": 0.6915254237288135,
+        "balanced_accuracy": 0.6991525423728813,
+        "precision": 0.9050279329608939,
+        "recall": 0.6864406779661016,
+        "f1": 0.7807228915662651,
+        "roc_auc": 0.7663746049985636
+      }
+    },
+    {
+      "model": "Tuned Random Forest",
+      "dataset": "Without Risk Index",
+      "best_cv_score": 0.7100746689828288,
+      "best_parameters": {
+        "n_estimators": 1000,
+        "min_samples_split": 20,
+        "min_samples_leaf": 5,
+        "max_features": "log2",
+        "max_depth": 8
+      },
+      "test_metrics": {
+        "test_rows": 295,
+        "passes": 236,
+        "non_passes": 59,
+        "accuracy": 0.6915254237288135,
+        "balanced_accuracy": 0.6991525423728813,
+        "precision": 0.9050279329608939,
+        "recall": 0.6864406779661016,
+        "f1": 0.7807228915662651,
+        "roc_auc": 0.7603059465670784
+      }
+    },
+    {
+      "model": "Tuned Random Forest",
+      "dataset": "With Risk Index",
+      "best_cv_score": 0.7094615866189542,
+      "best_parameters": {
+        "n_estimators": 1000,
+        "min_samples_split": 20,
+        "min_samples_leaf": 5,
+        "max_features": "log2",
+        "max_depth": 8
+      },
+      "test_metrics": {
+        "test_rows": 295,
+        "passes": 236,
+        "non_passes": 59,
+        "accuracy": 0.688135593220339,
+        "balanced_accuracy": 0.6906779661016949,
+        "precision": 0.9,
+        "recall": 0.6864406779661016,
+        "f1": 0.7788461538461539,
+        "roc_auc": 0.7599468543521977
+      }
+    }
+  ],
+  "output_files": [
+    "reports\\tuned_tree_models.csv",
+    "reports\\tuned_tree_parameters.json",
+    "reports\\tuned_feature_importance_long.csv",
+    "reports\\tuned_feature_importance_wide.csv",
+    "reports\\tuned_feature_importance.tex",
+    "reports\\tuned_roc_curve_points.csv",
+    "reports\\tuned_roc_summary.csv",
+    "reports\\tuned_roc_summary.tex",
+    "figures\\fig_tuned_tree_roc_comparison.png",
+    "data\\processed\\train_test_split.csv"
+  ],
+  "environment": {
+    "python_version": "3.14.5",
+    "python_executable": "C:\\Users\\115396\\Python\\transition_analysis\\.venv\\Scripts\\python.exe",
+    "operating_system": "Windows",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "execution_seconds": 97.772476,
+  "execution_timestamp": "2026-07-14T05:06:35.215011+00:00"
+}

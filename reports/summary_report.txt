@@ -1,0 +1,75 @@
+Transition Analysis
+------------------------------
+Cohort Size : 1473
+Pass Rate   : 79.97%
+
+Grade Counts
+------------
+Current Outcome
+High Distinction    335
+Pass                322
+Distinction         267
+Credit              254
+Fail                248
+Withdraw             31
+#VALUE!              10
+Other                 1
+Name: count, dtype: int64
+
+SOS Counts
+----------
+SOS Level
+Other       617
+Advanced    355
+Ext1        284
+Standard    112
+Ext2        105
+Name: count, dtype: int64
+
+SOS Level vs Current Outcome
+----------------------------
+Current Outcome  #VALUE!  Credit  Distinction  Fail  High Distinction  Other  Pass  Withdraw
+SOS Level                                                                                   
+Advanced               1      72           70    46                62      0    98         6
+Ext1                   2      46           74    25                94      0    40         3
+Ext2                   1      13           26     6                48      0     8         3
+Other                  4     108           93   121               128      0   148        11
+Standard               2      15            4    50                 3      1    28         8
+
+Previous 33130 Fail vs Current Outcome
+--------------------------------------
+Current Outcome      #VALUE!  Credit  Distinction  Fail  High Distinction  Other  Pass  Withdraw
+Previous 33130 Fail                                                                             
+N                         10     244          266   200               335      0   295        23
+Y                          0      10            1    48                 0      1    27         8
+
+Has 35010 vs Current Outcome
+----------------------------
+Current Outcome  #VALUE!  Credit  Distinction  Fail  High Distinction  Other  Pass  Withdraw
+Has 35010                                                                                   
+N                     10     242          263   194               331      0   295        23
+Y                      0      12            4    54                 4      1    27         8
+
+Pass Rate by SOS Level
+----------------------
+           Students  Passed  PassRate
+SOS Level                            
+Ext2            105      95     90.48
+Ext1            284     254     89.44
+Advanced        355     302     85.07
+Other           617     477     77.31
+Standard        112      50     44.64
+
+Pass Rate by Has 35010
+----------------------
+           Students  Passed  PassRate
+Has 35010                            
+N              1360    1131     83.16
+Y               113      47     41.59
+
+Pass Rate by Previous 33130 Fail
+--------------------------------
+                     Students  Passed  PassRate
+Previous 33130 Fail                            
+N                        1378    1140     82.73
+Y                          95      38     40.00

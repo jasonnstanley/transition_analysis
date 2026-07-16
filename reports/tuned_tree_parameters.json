@@ -1,0 +1,56 @@
+[
+  {
+    "model": "Tuned Decision Tree",
+    "dataset": "Without Risk Index",
+    "best_cv_score": 0.6993855927889994,
+    "scoring": "roc_auc",
+    "cv_folds": 5,
+    "best_parameters": {
+      "criterion": "entropy",
+      "max_depth": null,
+      "min_samples_leaf": 5,
+      "min_samples_split": 40
+    }
+  },
+  {
+    "model": "Tuned Decision Tree",
+    "dataset": "With Risk Index",
+    "best_cv_score": 0.7072376136524223,
+    "scoring": "roc_auc",
+    "cv_folds": 5,
+    "best_parameters": {
+      "criterion": "entropy",
+      "max_depth": 6,
+      "min_samples_leaf": 20,
+      "min_samples_split": 2
+    }
+  },
+  {
+    "model": "Tuned Random Forest",
+    "dataset": "Without Risk Index",
+    "best_cv_score": 0.7100746689828288,
+    "scoring": "roc_auc",
+    "cv_folds": 5,
+    "best_parameters": {
+      "n_estimators": 1000,
+      "min_samples_split": 20,
+      "min_samples_leaf": 5,
+      "max_features": "log2",
+      "max_depth": 8
+    }
+  },
+  {
+    "model": "Tuned Random Forest",
+    "dataset": "With Risk Index",
+    "best_cv_score": 0.7094615866189542,
+    "scoring": "roc_auc",
+    "cv_folds": 5,
+    "best_parameters": {
+      "n_estimators": 1000,
+      "min_samples_split": 20,
+      "min_samples_leaf": 5,
+      "max_features": "log2",
+      "max_depth": 8
+    }
+  }
+]

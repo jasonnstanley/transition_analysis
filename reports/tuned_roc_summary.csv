@@ -1,0 +1,5 @@
+model,dataset,roc_auc,test_rows,test_passes,test_non_passes,cv_roc_auc
+Decision Tree — With Risk,With Risk Index,0.7663746049985636,295,236,59,0.7072376136524223
+Random Forest — Without Risk,Without Risk Index,0.7603059465670784,295,236,59,0.7100746689828288
+Random Forest — With Risk,With Risk Index,0.7599468543521977,295,236,59,0.7094615866189542
+Decision Tree — Without Risk,Without Risk Index,0.7557095662166046,295,236,59,0.6993855927889994

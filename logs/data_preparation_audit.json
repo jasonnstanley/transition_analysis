@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "source_file": "data\\raw\\33130_autumn_2026.csv",
+  "source_row_count": 1473,
+  "output_row_count": 1473,
+  "removed_columns": [
+    "student_code",
+    "last_name",
+    "preferred_name",
+    "email_address"
+  ],
+  "renamed_columns": {
+    "International Student": "international_student",
+    "SOS": "secondary_school_mathematics",
+    "Grade": "historical_grade",
+    "Current 33130": "current_subject",
+    "Pass 33130": "current_subject_pass",
+    "Has Previous 33130": "has_previous_current_subject_attempt",
+    "Previous 33130 Fail": "previous_current_subject_failure",
+    "Has 35010": "has_preparatory_subject",
+    "Prior 35010 Fail": "prior_preparatory_subject_failure",
+    "Prior 35010 Pass": "prior_preparatory_subject_pass",
+    "SOS Level": "secondary_preparation_level",
+    "SOS Mark": "secondary_school_mark",
+    "SOS Band": "secondary_school_mark_band",
+    "Current Outcome": "current_outcome",
+    "Risk Index": "risk_index"
+  },
+  "generalised_columns": [],
+  "suppressed_values": {},
+  "random_seed": 33130,
+  "execution_timestamp": "2026-07-13T05:56:37.789292+00:00"
+}

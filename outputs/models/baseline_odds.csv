@@ -1,0 +1,4 @@
+,Odds Ratio,Lower 95%,Upper 95%,P-value
+Intercept,5.253,4.54,6.078,0.0
+"Q(""Has 35010"")[T.Y]",0.238,0.152,0.373,0.0
+"Q(""Previous 33130 Fail"")[T.Y]",0.261,0.16,0.426,0.0

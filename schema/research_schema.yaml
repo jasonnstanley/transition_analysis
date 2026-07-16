@@ -1,0 +1,275 @@
+schema:
+  name: transition_analysis_research_schema
+  version: 0.1.0
+  description: >
+    Research coding, de-identification, and data-release schema
+    for the Transition Analysis Toolkit.
+
+source:
+  institution: restricted
+  dataset_name: autumn_mathematics_transition
+  input_file: data/raw/33130_autumn_2026.csv
+
+identifiers:
+  source_identifier:
+    column: student_code
+    classification: direct_identifier
+    action: replace
+    replacement_column: research_id
+
+  research_identifier:
+    column: research_id
+    format: R{number:06d}
+    assignment: randomised
+    retain_crosswalk: true
+
+  public_identifier:
+    column: public_id
+    format: P{number:06d}
+    assignment: randomised
+    retain_crosswalk: false
+
+crosswalk:
+  enabled: true
+  output_file: data/secure/student_crosswalk.csv
+  restricted: true
+  include:
+    - student_code
+    - research_id
+  exclude_from_public_release: true
+  exclude_from_version_control: true
+
+release_levels:
+
+  internal:
+    description: >
+      Restricted institutional source data containing direct identifiers.
+    identifier: student_code
+    output_file: data/raw/33130_autumn_2026.csv
+    public: false
+
+  research:
+    description: >
+      Pseudonymised analytical dataset used for Python analysis
+      and independent R verification.
+    identifier: research_id
+    output_file: data/processed/transition_research.csv
+    public: false
+
+  public:
+    description: >
+      De-identified and institution-neutral dataset suitable
+      for publication or repository examples.
+    identifier: public_id
+    output_file: data/public/transition_public.csv
+    public: true
+
+columns:
+
+  student_code:
+    classification: direct_identifier
+    internal_action: retain
+    research_action: replace
+    public_action: remove
+
+  last_name:
+    classification: direct_identifier
+    internal_action: retain
+    research_action: remove
+    public_action: remove
+
+  preferred_name:
+    classification: direct_identifier
+    internal_action: retain
+    research_action: remove
+    public_action: remove
+
+  email_address:
+    classification: direct_identifier
+    internal_action: retain
+    research_action: remove
+    public_action: remove
+
+  course:
+    classification: quasi_identifier
+    research_name: course
+    public_name: program_group
+    internal_action: retain
+    research_action: retain
+    public_action: generalise
+
+  display_subject_code:
+    classification: institutional_identifier
+    research_name: display_subject_code
+    public_name: subject_role
+    internal_action: retain
+    research_action: retain
+    public_action: generalise
+
+  subject_code:
+    classification: institutional_identifier
+    research_name: subject_code
+    public_name: subject_role_code
+    internal_action: retain
+    research_action: retain
+    public_action: generalise
+
+  International Student:
+    classification: quasi_identifier
+    research_name: international_student
+    public_name: international_student
+    internal_action: retain
+    research_action: retain
+    public_action: review
+
+  SOS:
+    classification: research_variable
+    research_name: secondary_school_mathematics
+    public_name: secondary_school_mathematics
+    internal_action: retain
+    research_action: retain
+    public_action: generalise
+
+  Grade:
+    classification: research_variable
+    research_name: historical_grade
+    public_name: historical_grade
+    internal_action: retain
+    research_action: retain
+    public_action: review
+
+  Current 33130:
+    classification: institutional_variable
+    research_name: current_subject
+    public_name: current_subject
+    internal_action: retain
+    research_action: retain
+    public_action: rename
+
+  Pass 33130:
+    classification: outcome_variable
+    research_name: current_subject_pass
+    public_name: current_subject_pass
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Has Previous 33130:
+    classification: derived_variable
+    research_name: has_previous_current_subject_attempt
+    public_name: has_previous_current_subject_attempt
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Previous 33130 Fail:
+    classification: predictor_variable
+    research_name: previous_current_subject_failure
+    public_name: previous_current_subject_failure
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Has 35010:
+    classification: predictor_variable
+    research_name: has_preparatory_subject
+    public_name: has_preparatory_subject
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Prior 35010 Fail:
+    classification: predictor_variable
+    research_name: prior_preparatory_subject_failure
+    public_name: prior_preparatory_subject_failure
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Prior 35010 Pass:
+    classification: predictor_variable
+    research_name: prior_preparatory_subject_pass
+    public_name: prior_preparatory_subject_pass
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  SOS Level:
+    classification: predictor_variable
+    research_name: secondary_preparation_level
+    public_name: secondary_preparation_level
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  SOS Mark:
+    classification: quasi_identifier
+    research_name: secondary_school_mark
+    public_name: secondary_school_mark_band
+    internal_action: retain
+    research_action: retain
+    public_action: generalise
+
+  SOS Band:
+    classification: predictor_variable
+    research_name: secondary_school_mark_band
+    public_name: secondary_school_mark_band
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Current Outcome:
+    classification: outcome_variable
+    research_name: current_outcome
+    public_name: current_outcome
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+  Risk Index:
+    classification: derived_variable
+    research_name: risk_index
+    public_name: risk_index
+    internal_action: retain
+    research_action: retain
+    public_action: retain
+
+privacy_review:
+  minimum_group_size: 5
+
+  review_columns:
+    - course
+    - International Student
+    - SOS Level
+    - SOS Mark
+    - Current Outcome
+
+  actions_for_small_groups:
+    - generalise
+    - combine_categories
+    - suppress
+    - remove
+
+processing:
+  preserve_original_file: true
+  modify_source_in_place: false
+  randomise_identifier_assignment: true
+  shuffle_output_rows: true
+  record_random_seed: true
+  validate_row_count: true
+  validate_required_columns: true
+  write_audit_log: true
+
+audit:
+  output_file: logs/data_preparation_audit.json
+  include:
+    - schema_version
+    - source_file
+    - source_row_count
+    - output_row_count
+    - removed_columns
+    - renamed_columns
+    - generalised_columns
+    - suppressed_values
+    - random_seed
+    - execution_timestamp
