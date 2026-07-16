@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+
+title: "Transition Analysis"
+abstract: >
+  A reproducible research toolkit for analysing student transition
+  pathways into first-year university mathematics using Python,
+  independent R verification, schema-based data preparation,
+  statistical modelling, machine learning, and audit logging.
+
+type: software
+
+authors:
+  - family-names: "Stanley"
+    given-names: "Jason"
+
+version: "0.4.0"
+date-released: "2026-07-16"
+
+repository-code: "https://github.com/jasonnstanley/transition_analysis"
+url: "https://github.com/jasonnstanley/transition_analysis"
+
+keywords:
+  - mathematics education
+  - student transition
+  - reproducible research
+  - statistical modelling
+  - machine learning
+  - Python
+  - R
