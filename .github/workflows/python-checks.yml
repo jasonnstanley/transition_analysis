@@ -56,5 +56,8 @@ jobs:
         run: python tests/test_schema.py  
       
 
-
+      - name: Verify canonical train/test split
+        run: python tests/test_train_test_split.py
+      
+      
       
