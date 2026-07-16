@@ -44,3 +44,8 @@ transition_analysis/
 ├── logs/            Analysis and verification audit logs
 ├── docs/            Project documentation
 └── tests/           Validation and test scripts
+
+[![Python checks](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml/badge.svg)](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/jasonnstanley/transition_analysis)](https://github.com/jasonnstanley/transition_analysis/releases)
+[![Python](https://img.shields.io/badge/Python-3.14-blue.svg)](https://www.python.org/)
