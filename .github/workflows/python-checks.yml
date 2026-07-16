@@ -52,5 +52,9 @@ jobs:
       - name: Run public data integrity test
         run: python tests/test_public_data.py      
         
-        
-        
+      - name: Verify research schema
+        run: python tests/test_schema.py  
+      
+
+
+      
