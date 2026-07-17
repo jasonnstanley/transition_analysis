@@ -34,6 +34,7 @@ REQUIRED_PACKAGES = [
     "sklearn",
     "matplotlib",
     "yaml",
+    "pytest",
 ]
 
 EXTERNAL_COMMANDS = {

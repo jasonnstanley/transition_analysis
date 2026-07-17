@@ -45,8 +45,7 @@ def extract_expected_research_columns(schema: dict) -> list[str]:
 
     return expected
 
-
-def main() -> None:
+def test_research_dataset_matches_schema() -> None:
     """Compare processed research columns with the authoritative schema."""
 
     assert SCHEMA_PATH.exists(), f"Missing schema: {SCHEMA_PATH}"
@@ -65,9 +64,17 @@ def main() -> None:
         f"\nExpected columns ({len(expected)}):\n{expected}"
         f"\n\nActual columns ({len(actual)}):\n{actual}\n"
     )
+    
+    
+def main() -> None:
+    """Run the schema verification as a standalone script."""
+
+    test_research_dataset_matches_schema()
+
+    data = pd.read_csv(DATA_PATH)
 
     print("Research schema verified.")
-    print(f"{len(actual)} columns checked.")
+    print(f"{len(data.columns)} columns checked.")
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ REQUIRED_RESEARCH_COLUMNS = {
 }
 
 
-def main() -> None:
+def test_public_research_data_is_safe_and_valid() -> None:
     """Verify that public datasets are de-identified and internally valid."""
 
     assert RESEARCH_DATA.exists(), f"Missing file: {RESEARCH_DATA}"
@@ -56,6 +56,15 @@ def main() -> None:
 
     assert len(research) > 0, "Research dataset is empty."
     assert len(split) > 0, "Train/test split dataset is empty."
+
+
+def main() -> None:
+    """Run public-data verification as a standalone script."""
+
+    test_public_research_data_is_safe_and_valid()
+
+    research = pd.read_csv(RESEARCH_DATA)
+    split = pd.read_csv(SPLIT_DATA)
 
     print("Public research data checks passed.")
     print(f"Research rows: {len(research)}")

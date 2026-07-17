@@ -23,7 +23,8 @@ EXPECTED = {
 }
 
 
-def main():
+def test_published_tuned_roc_summary() -> None:
+    """Verify all published tuned ROC results."""
 
     assert ROC_SUMMARY.exists(), (
         f"Missing report: {ROC_SUMMARY}"
@@ -36,7 +37,6 @@ def main():
     )
 
     for _, row in df.iterrows():
-
         key = (row["model"], row["dataset"])
 
         assert key in EXPECTED, (
@@ -50,7 +50,8 @@ def main():
             expected_cv,
             abs_tol=1e-6,
         ), (
-            f"{key} CV ROC mismatch."
+            f"{key} CV ROC mismatch: "
+            f"expected {expected_cv}, found {row['cv_roc_auc']}."
         )
 
         assert math.isclose(
@@ -58,12 +59,19 @@ def main():
             expected_test,
             abs_tol=1e-6,
         ), (
-            f"{key} Test ROC mismatch."
+            f"{key} Test ROC mismatch: "
+            f"expected {expected_test}, found {row['roc_auc']}."
         )
 
         assert row["test_rows"] == 295
         assert row["test_passes"] == 236
         assert row["test_non_passes"] == 59
+
+
+def main() -> None:
+    """Run tuned ROC verification as a standalone script."""
+
+    test_published_tuned_roc_summary()
 
     print("Published tuned ROC summary verified.")
     print("All four tuned models match the canonical results.")

@@ -38,7 +38,7 @@ EXPECTED_AVERAGES = {
 }
 
 
-def main() -> None:
+def test_grouped_feature_importance_report() -> None:
     """Verify report structure, ordering, and canonical grouped results."""
 
     assert REPORT.exists(), f"Missing report: {REPORT}"
@@ -103,6 +103,12 @@ def main() -> None:
             calculated_averages,
         )
     ), "average_across_models does not match the four model columns."
+
+
+def main() -> None:
+    """Run grouped feature-importance verification as a standalone script."""
+
+    test_grouped_feature_importance_report()
 
     print("Grouped feature-importance report verified.")
     print("All six feature groups match the canonical results.")

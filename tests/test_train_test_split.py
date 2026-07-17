@@ -18,7 +18,7 @@ EXPECTED_OUTCOME_COUNTS = {
 }
 
 
-def main() -> None:
+def test_canonical_train_test_split() -> None:
     """Verify split membership, counts, identifiers, and outcome balance."""
 
     assert RESEARCH_DATA.exists(), f"Missing file: {RESEARCH_DATA}"
@@ -108,6 +108,15 @@ def main() -> None:
                 f"{split_name!r} outcome {outcome}: "
                 f"expected {expected_count}, found {actual_count}."
             )
+
+
+def main() -> None:
+    """Run split verification as a standalone script."""
+
+    test_canonical_train_test_split()
+
+    split = pd.read_csv(SPLIT_DATA)
+    split_counts = split["split"].value_counts().to_dict()
 
     print("Canonical train/test split verified.")
     print(f"Total rows:    {len(split)}")
