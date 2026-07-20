@@ -10,11 +10,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_analysis(name: str, script: str) -> None:
-    """Run one canonical analysis script."""
+def run_analysis(name: str, module: str) -> None:
+    """Run one canonical analysis module."""
 
-    script_path = PROJECT_ROOT / script
-    command = [sys.executable, str(script_path)]
+    command = [sys.executable, "-m", module]
 
     print()
     print("-" * 72)
@@ -37,7 +36,6 @@ def run_analysis(name: str, script: str) -> None:
     print()
     print(f"✓ {name}")
 
-
 def main() -> None:
     """Run all canonical Python analyses."""
 
@@ -45,7 +43,7 @@ def main() -> None:
 
     run_analysis(
         "Core statistical and classification analysis",
-        "run_models.py",
+        "python.run_models",
     )
 
     print()
