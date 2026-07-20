@@ -49,16 +49,5 @@ jobs:
           python -c "from pathlib import Path; assert not Path('data/secure/student_crosswalk.csv').exists()"
           
           
-      - name: Run public data integrity test
-        run: python tests/test_public_data.py      
-        
-      - name: Verify research schema
-        run: python tests/test_schema.py  
-      
-
-      - name: Verify canonical train/test split
-        run: python tests/test_train_test_split.py
-      
-      
-      - name: Verify published tuned ROC summary
-        run: python tests/test_tuned_roc_summary.py
+      - name: Run Python test suite
+        run: python -m pytest
