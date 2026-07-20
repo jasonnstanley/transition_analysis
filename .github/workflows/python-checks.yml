@@ -57,5 +57,3 @@ jobs:
 
       - name: Rebuild research reports
         run: python -m python.reports
-        
-        
