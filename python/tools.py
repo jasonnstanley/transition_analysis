@@ -122,6 +122,29 @@ def find_pdflatex() -> Path:
         candidates=candidates,
     )
 
+def find_bibtex() -> Path:
+    """Locate the BibTeX executable."""
+
+    home = Path.home()
+    texlive_root = home / "Tools" / "texlive"
+
+    candidates = [
+        texlive_root / "bin" / "windows" / "bibtex.exe",
+        home / "Tools" / "TeXLive" / "bin" / "windows" / "bibtex.exe",
+    ]
+
+    if texlive_root.is_dir():
+        candidates.extend(
+            sorted(
+                texlive_root.glob("*/bin/windows/bibtex.exe"),
+                reverse=True,
+            )
+        )
+
+    return find_executable(
+        "bibtex",
+        candidates=candidates,
+    )
 
 def find_pandoc() -> Path:
     """Locate the Pandoc executable."""

@@ -66,4 +66,18 @@ progress_so_far.txt
 *.bak
 *.swp
 
+# ---------------------------------------------------------------------------
+# LaTeX build artefacts
+# ---------------------------------------------------------------------------
+
+paper/build/*.aux
+paper/build/*.bbl
+paper/build/*.blg
+paper/build/*.fdb_latexmk
+paper/build/*.fls
+paper/build/*.log
+paper/build/*.out
+paper/build/*.toc
+paper/build/*.synctex.gz
+
 ###############################################################################

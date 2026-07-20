@@ -68,12 +68,16 @@ def main() -> int:
             "Stage 4 — Rebuild research reports",
             [sys.executable, "-m", "python.reports"],
         ),
-        (
+                (
             "Stage 5 — Independent R verification",
             [sys.executable, "-m", "python.verification"],
         ),
         (
-            "Stage 6 — Write build manifest",
+            "Stage 6 — Build LaTeX research paper",
+            [sys.executable, "-m", "python.build_paper"],
+        ),
+        (
+            "Stage 7 — Write build manifest",
             [sys.executable, "-m", "python.build_manifest"],
         ),
     ]
@@ -103,8 +107,16 @@ def main() -> int:
 
     print()
     print("=" * 72)
-    print("BUILD COMPLETED SUCCESSFULLY")
+    print("RESEARCH BUILD COMPLETED SUCCESSFULLY")
     print("=" * 72)
+    print()
+    print("Generated artefacts")
+    print("-" * 72)
+    print(f"Reports      : {PROJECT_ROOT / 'reports'}")
+    print(f"Figures      : {PROJECT_ROOT / 'figures'}")
+    print(f"Logs         : {PROJECT_ROOT / 'logs'}")
+    print(f"Paper PDF    : {PROJECT_ROOT / 'paper' / 'build' / 'main.pdf'}")
+    print()
     print(f"Finished     : {finished_at.isoformat(timespec='seconds')}")
     print(f"Elapsed time : {elapsed:.2f} seconds")
     
