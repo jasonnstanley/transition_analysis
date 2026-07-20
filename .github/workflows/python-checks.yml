@@ -51,3 +51,11 @@ jobs:
           
       - name: Run Python test suite
         run: python -m pytest
+        
+      - name: Run canonical Python analysis
+        run: python -m python.analysis
+
+      - name: Rebuild research reports
+        run: python -m python.reports
+        
+        
