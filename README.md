@@ -45,6 +45,7 @@ transition_analysis/
 ├── logs/            Analysis and verification audit logs
 ├── docs/            Project documentation
 └── tests/           Validation and test scripts
+```
 
 [![Python checks](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml/badge.svg)](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml)
 
@@ -63,3 +64,75 @@ The Transition Analysis Toolkit has been successfully built and tested on:
   - TeX Live 2022
 
 The toolkit is designed to be reproducible across supported platforms.
+
+## Developer Workflow
+Start work
+----------
+git pull --rebase origin main
+
+Develop
+-------
+python -m python.build
+
+Commit
+------
+git add ...
+git commit -m "..."
+
+Synchronise
+-----------
+git pull --rebase origin main
+git push
+
+## Search your command history for README
+
+history | grep README
+
+or more specifically:
+
+history | grep "git add"
+
+or:
+
+history | grep "README.md"
+
+If you want to find the exact command where you staged the README, this is usually enough:
+
+history | grep "git add README.md"
+Interactive search (my favourite)
+
+In Bash or Git Bash, press:
+
+Ctrl + r
+
+Then start typing:
+
+README
+
+or
+
+git add
+
+Each press of Ctrl + r searches further back through matching commands. Press Enter to reuse the command, or use the arrow keys to edit it before running.
+
+See commits that modified README.md
+
+If instead you want the Git history of the file (rather than your terminal history), use:
+
+git log -- README.md
+
+or for a compact view:
+
+git log --oneline -- README.md
+
+To see exactly what changed in each commit:
+
+git log -p -- README.md
+
+These are worth remembering:
+
+history | grep ... → What commands did I type?
+git log -- README.md → When did the file change?
+
+The distinction between shell history and Git history is one of the most useful habits to develop when working with Git.
+ 
