@@ -50,7 +50,7 @@ transition_analysis/
 [![Python checks](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml/badge.svg)](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml)
 
 ## Verified Platforms
-
+```text
 The Transition Analysis Toolkit has been successfully built and tested on:
 
 - Windows 11
@@ -64,7 +64,7 @@ The Transition Analysis Toolkit has been successfully built and tested on:
   - TeX Live 2022
 
 The toolkit is designed to be reproducible across supported platforms.
-
+```
 ## Developer Workflow
 Start work
 ----------
