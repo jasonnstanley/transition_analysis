@@ -14,3 +14,13 @@ python -m python.checks
 python -m python.analysis
 python -m python.reports
 python -m python.build
+```
+
+## notes/
+
+Historical development notes, planning documents, and working transcripts
+created during development of the Transition Analysis Toolkit.
+
+These files are retained for historical interest and to document the
+evolution of the project but are not part of the canonical analysis
+workflow.
