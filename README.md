@@ -138,7 +138,7 @@ The distinction between shell history and Git history is one of the most useful 
 
 
 ## GitHub
-
+```text
 Working files
       ↓
 	git add
@@ -152,3 +152,5 @@ Local Git repository (your computer)
 	git push
       ↓
 GitHub (remote repository) 
+```
+
