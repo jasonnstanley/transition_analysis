@@ -26,12 +26,13 @@ __pycache__/
 *$py.class
 
 # ---------------------------------------------------------------------------
-# Log files only
+# Log files only  Local runtime logs (not part of the research record)
 # ---------------------------------------------------------------------------
 
 # Build logs
 logs/*.log
-
+logs/local/*
+!logs/local/.gitkeep
 
 
 # ---------------------------------------------------------------------------
