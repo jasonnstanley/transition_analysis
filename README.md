@@ -83,7 +83,14 @@ Synchronise
 -----------
 git pull --rebase origin main
 git push
-
+```text
+Summary:
+git add .
+git commit -m "Improve README formatting or some other informative comment"
+git pull --rebase origin main
+git push origin main
+git status
+```
 ## Search your command history for README
 
 history | grep README
