@@ -82,16 +82,14 @@ git push origin main
 git status
 ```
 ## Search your command history for README
+
+```text
 Summary:
-```textSee commits that modified README.md
+See commits that modified README.md
 
 If instead you want the Git history of the file (rather than your terminal history), use:
 
-git log -- README.md
-
-or for a compact view:
-
-git log --oneline -- README.md
+git log -- README.md		or for a compact view:			git log --oneline -- README.md
 
 To see exactly what changed in each commit:
 
@@ -102,7 +100,8 @@ These are worth remembering:
 history | grep ... → What commands did I type?
 git log -- README.md → When did the file change?
 
-The distinction between shell history and Git history is one of the most useful habits to develop when working with Git.
+The distinction between shell history and Git history is 
+one of the most useful habits to develop when working with Git.
 ```
 history | grep README
 
