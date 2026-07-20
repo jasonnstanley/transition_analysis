@@ -135,4 +135,26 @@ history | grep ... → What commands did I type?
 git log -- README.md → When did the file change?
 
 The distinction between shell history and Git history is one of the most useful habits to develop when working with Git.
- 
+
+
+## GitHub
+
+Working files
+      │
+      ▼
+git add
+      │
+      ▼
+Staging area
+      │
+      ▼
+git commit
+      │
+      ▼
+Local Git repository (your computer)
+      │
+      ▼
+git push
+      │
+      ▼
+GitHub (remote repository) 
