@@ -47,3 +47,19 @@ transition_analysis/
 └── tests/           Validation and test scripts
 
 [![Python checks](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml/badge.svg)](https://github.com/jasonnstanley/transition_analysis/actions/workflows/python-checks.yml)
+
+## Verified Platforms
+
+The Transition Analysis Toolkit has been successfully built and tested on:
+
+- Windows 11
+  - Python 3.14.5
+  - R 4.6.1
+  - TeX Live 2026
+
+- macOS Monterey 12.7.6 (Intel)
+  - Python 3.14.6
+  - R 4.4.1
+  - TeX Live 2022
+
+The toolkit is designed to be reproducible across supported platforms.
