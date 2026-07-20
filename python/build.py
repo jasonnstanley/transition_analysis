@@ -60,6 +60,22 @@ def main() -> int:
             "Stage 2 — Python unit tests",
             [sys.executable, "-m", "pytest"],
         ),
+        (
+            "Stage 3 — Run canonical Python analysis",
+            [sys.executable, "-m", "python.analysis"],
+        ),
+        (
+            "Stage 4 — Rebuild research reports",
+            [sys.executable, "-m", "python.reports"],
+        ),
+        (
+            "Stage 5 — Independent R verification",
+            [sys.executable, "-m", "python.verification"],
+        ),
+        (
+            "Stage 6 — Write build manifest",
+            [sys.executable, "-m", "python.build_manifest"],
+        ),
     ]
 
     for stage_name, command in stages:

@@ -313,20 +313,33 @@ def save_dataframe(
     csv_name: str,
     tex_name: str,
     float_format: str = "%.4f",
+    tex_columns: list[str] | None = None,
+    tex_column_names: dict[str, str] | None = None,
 ) -> None:
     """
-    Save a dataframe as CSV and LaTeX.
+    Save the complete dataframe as CSV and a publication-oriented
+    selection of columns as LaTeX.
     """
 
     csv_file = REPORTS / csv_name
     tex_file = REPORTS / tex_name
 
+    # Preserve the complete machine-readable report.
     df.to_csv(
         csv_file,
         index=False,
     )
 
-    latex = df.to_latex(
+    # Optionally restrict and rename columns for the paper table.
+    tex_df = df.copy()
+
+    if tex_columns is not None:
+        tex_df = tex_df.loc[:, tex_columns].copy()
+
+    if tex_column_names is not None:
+        tex_df = tex_df.rename(columns=tex_column_names)
+
+    latex = tex_df.to_latex(
         index=False,
         float_format=float_format,
         escape=True,
@@ -479,14 +492,36 @@ def main() -> None:
 
     save_dataframe(
         rankings,
-        "feature_rankings.csv",
-        "feature_rankings.tex",
+            "feature_rankings.csv",
+            "feature_rankings.tex",
+        tex_columns=[
+            "overall_rank",
+            "feature",
+            "models_included",
+            "included_model_average",
+        ],
+        tex_column_names={
+            "overall_rank": "Rank",
+            "feature": "Feature",
+            "models_included": "Models",
+            "included_model_average": "Mean importance",
+        },
     )
 
     save_dataframe(
         grouped_summary,
         "grouped_feature_importance.csv",
         "grouped_feature_importance.tex",
+        tex_columns=[
+            "group_rank",
+            "feature_group",
+            "average_across_models",
+        ],
+        tex_column_names={
+            "group_rank": "Rank",
+            "feature_group": "Research theme",
+            "average_across_models": "Mean importance",
+        },
     )
 
 

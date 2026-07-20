@@ -4,11 +4,16 @@ from __future__ import annotations
 
 import importlib.util
 import os
-import shutil
+# import shutil
 import subprocess
 import sys
 from pathlib import Path
-
+from python.tools import (
+    ToolNotFoundError,
+    find_git,
+    find_pdflatex,
+    find_rscript,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,6 +42,7 @@ REQUIRED_PACKAGES = [
     "pytest",
 ]
 
+'''
 EXTERNAL_COMMANDS = {
     "Git": ["git", "--version"],
     "R": ["Rscript", "--version"],
@@ -44,6 +50,80 @@ EXTERNAL_COMMANDS = {
     "latexmk": ["latexmk", "--version"],
     "BibTeX": ["bibtex", "--version"],
 }
+'''
+
+'''
+def check_external_tools() -> None:
+    """Verify required external tools are available."""
+
+    required_tools = [
+        ("Git", find_git),
+        ("Rscript", find_rscript),
+        ("pdfLaTeX", find_pdflatex),
+    ]
+
+    print()
+    print("External tools")
+    print("-" * 72)
+
+    for name, finder in required_tools:
+        try:
+            path = finder()
+        except ToolNotFoundError as exc:
+            raise RuntimeError(str(exc)) from exc
+
+        print(f"{name:<10} {path}")
+'''
+
+def check_external_tools() -> bool:
+    """Verify required external tools are available."""
+
+    required_tools = [
+        ("Git", find_git, ["--version"]),
+        ("Rscript", find_rscript, ["--version"]),
+        ("pdfLaTeX", find_pdflatex, ["--version"]),
+    ]
+
+    print_heading("External tools")
+
+    all_available = True
+
+    for name, finder, version_arguments in required_tools:
+        try:
+            executable = finder()
+        except ToolNotFoundError as error:
+            print(f"{name:<20} MISSING")
+            print(f"  {error}")
+            all_available = False
+            continue
+
+        try:
+            result = subprocess.run(
+                [str(executable), *version_arguments],
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=20,
+            )
+        except (OSError, subprocess.SubprocessError) as error:
+            print(f"{name:<20} ERROR — {error}")
+            all_available = False
+            continue
+
+        output = result.stdout.strip() or result.stderr.strip()
+        first_line = output.splitlines()[0] if output else str(executable)
+
+        if result.returncode == 0:
+            print(f"{name:<20} FOUND — {first_line}")
+            print(f"{'':<20} {executable}")
+        else:
+            print(
+                f"{name:<20} ERROR — "
+                f"exit code {result.returncode}"
+            )
+            all_available = False
+
+    return all_available
 
 
 def print_heading(title: str) -> None:
@@ -119,7 +199,7 @@ def check_files() -> bool:
 
     return all_available
 
-
+'''
 def find_texlive_command(command: str) -> str | None:
     """Find a TeX command either on PATH or in the local Tools installation."""
     path_command = shutil.which(command)
@@ -141,8 +221,9 @@ def find_texlive_command(command: str) -> str | None:
         return str(local_command)
 
     return None
+'''
 
-
+'''
 def find_rscript_command() -> str | None:
     """Find Rscript either on PATH or in the local Tools installation."""
     path_command = shutil.which("Rscript")
@@ -179,8 +260,9 @@ def resolve_command(command: list[str]) -> list[str] | None:
         return None
 
     return [resolved, *command[1:]]
+'''
 
-
+'''
 def check_external_commands() -> bool:
     """Check Git, R, and LaTeX command availability."""
     print_heading("External tools")
@@ -218,20 +300,21 @@ def check_external_commands() -> bool:
             all_available = False
 
     return all_available
-
+'''
 
 def check_git_repository() -> bool:
     """Check whether the project root is inside a Git repository."""
     print_heading("Git repository")
 
-    git = shutil.which("git")
-
-    if git is None:
-        print("Git repository check: SKIPPED — Git not available")
+    try:
+       git = find_git()
+    except ToolNotFoundError as error:
+        print("Git repository check: FAILED — Git not available")
+        print(f"  {error}")
         return False
 
     result = subprocess.run(
-        [git, "rev-parse", "--show-toplevel"],
+        [str(git), "rev-parse", "--show-toplevel"],
         cwd=PROJECT_ROOT,
         capture_output=True,
         text=True,
@@ -259,7 +342,7 @@ def main() -> int:
         "Python packages": check_packages(),
         "Project directories": check_directories(),
         "Required files": check_files(),
-        "External tools": check_external_commands(),
+        "External tools": check_external_tools(),
         "Git repository": check_git_repository(),
     }
 
@@ -275,8 +358,11 @@ def main() -> int:
         checks["Project directories"],
         checks["Required files"],
         checks["External tools"],
+        checks["Git repository"],
     ]
-
+    
+    
+    
     if all(required_checks):
         print()
         print("Environment check completed successfully.")
