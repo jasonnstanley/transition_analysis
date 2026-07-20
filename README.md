@@ -140,21 +140,15 @@ The distinction between shell history and Git history is one of the most useful 
 ## GitHub
 
 Working files
-      │
-      ▼
-git add
-      │
-      ▼
+      ↓
+	git add
+      ↓
 Staging area
-      │
-      ▼
+      ↓
 git commit
-      │
-      ▼
+      ↓
 Local Git repository (your computer)
-      │
-      ▼
-git push
-      │
-      ▼
+      ↓
+	git push
+      ↓
 GitHub (remote repository) 
