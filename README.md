@@ -66,23 +66,13 @@ The Transition Analysis Toolkit has been successfully built and tested on:
 The toolkit is designed to be reproducible across supported platforms.
 ```
 ## Developer Workflow
-Start work
-----------
-git pull --rebase origin main
+Start work - git pull --rebase origin main
 
-Develop
--------
-python -m python.build
+Develop - python -m python.build
 
-Commit
-------
-git add ...
-git commit -m "..."
+Commit - git add ..., git commit -m "..."
 
-Synchronise
------------
-git pull --rebase origin main
-git push
+Synchronise - git pull --rebase origin main (good habit if using many platforms (local work or home, laptop or desktop etc) then, git push
 ```text
 Summary:
 git add .
@@ -92,7 +82,28 @@ git push origin main
 git status
 ```
 ## Search your command history for README
+Summary:
+```textSee commits that modified README.md
 
+If instead you want the Git history of the file (rather than your terminal history), use:
+
+git log -- README.md
+
+or for a compact view:
+
+git log --oneline -- README.md
+
+To see exactly what changed in each commit:
+
+git log -p -- README.md
+
+These are worth remembering:
+
+history | grep ... → What commands did I type?
+git log -- README.md → When did the file change?
+
+The distinction between shell history and Git history is one of the most useful habits to develop when working with Git.
+```
 history | grep README
 
 or more specifically:
