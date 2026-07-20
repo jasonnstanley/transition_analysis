@@ -103,15 +103,7 @@ git log -- README.md → When did the file change?
 The distinction between shell history and Git history is 
 one of the most useful habits to develop when working with Git.
 ```
-history | grep README
-
-or more specifically:
-
-history | grep "git add"
-
-or:
-
-history | grep "README.md"
+history | grep README		or		 more specifically:			history | grep "git add"	or:			history | grep "README.md"
 
 If you want to find the exact command where you staged the README, this is usually enough:
 
