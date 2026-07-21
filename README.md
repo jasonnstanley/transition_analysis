@@ -32,6 +32,8 @@ The project combines:
 The current case study analyses Autumn 2026 enrolments in a first-stage undergraduate mathematics subject.
 
 The workflow was designed to support transparent and reproducible investigation of student transition pathways into first-year university mathematics.
+The repository accompanies a research case study while providing a reusable, transparent workflow for reproducible educational data analysis.
+
 
 ## Quick start
 
@@ -47,14 +49,14 @@ Create and activate a virtual environment.
 ### Windows Git Bash
 
 ```bash
-py -3.14 -m venv .venv
+py -m venv .venv
 source .venv/Scripts/activate
 ```
 
 ### macOS or Linux
 
 ```bash
-python3.14 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -65,11 +67,14 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
+Independent verification requires a working installation of **R**. When available, the canonical build automatically runs the independent R verification scripts.
+
 Run the complete reproducible build:
 
 ```bash
 python -m python.build
 ```
+
 
 ## Reproducible build
 
