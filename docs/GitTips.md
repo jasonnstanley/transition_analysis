@@ -1,5 +1,5 @@
 # Git and Shell History Tips
-# Git Tips
+
 
 This document is a practical reference for the Git commands used during development of the Transition Analysis Toolkit.
 
@@ -7,9 +7,9 @@ It is not intended to teach Git from first principles. Instead, it provides a co
 
 ---
 
-# Repository Status
+## Repository Status
 
-Current repository status:
+### Current repository status:
 
 ```bash
 git status
@@ -19,7 +19,7 @@ Compact status:										git status --short
 Show current branch:								git branch
 ```
 
-Reviewing Changes ---------
+### Reviewing Changes
 ```bash
 Review all unstaged changes:						git diff
 
@@ -31,7 +31,7 @@ Summarise changes:									git diff --stat
 ```
 
 
-Staging Files ---------
+### Staging Files
 ```bash
 Stage one file:										git add README.md
 
@@ -42,14 +42,14 @@ Stage everything:									git add .
 Interactive staging:								git add -p
 ```
 
-Commiting Changes ---------
+### Commiting Changes
 ```bash
 Create a commit:									git commit -m "Describe the completed change"
 
 Amend the previous commit message:					git commit --amend
 ```
 
-Viewing History ---------
+### Viewing History
 ```bash
 Compact history:									git log --oneline
 
@@ -60,7 +60,7 @@ Recent history:										git log -10
 Find previous commits:								git log --grep="README"
 ```
 
-Searching Command History ---------
+### Searching Command History
 ```bash
 Search terminal history:							history | grep git
 
@@ -73,7 +73,7 @@ Repeat previous command:							!!
 Repeat previous command beginning with "git":		!git
 ```
 
-Inspecting Files ---------
+### Inspecting Files
 ```bash
 List tracked files:									git ls-files
 
@@ -82,7 +82,7 @@ Show ignored files:									git status --ignored
 Show repository root:								git rev-parse --show-toplevel
 ```
 
-Synchronising ---------
+### Synchronising
 ```bash
 Download latest changes:							git fetch
 
@@ -91,7 +91,7 @@ Update local repository:							git pull --rebase origin main
 Upload commits:										git push origin main
 ```
 
-Undoing Mistakes Safely ---------
+### Undoing Mistakes Safely
 ```bash
 Unstage a file:										git restore --staged README.md
 
@@ -100,7 +100,7 @@ Discard unstaged changes:							git restore README.md
 Restore every modified file:						git restore .
 ```
 
-Cleaning the Working Tree ---------
+### Cleaning the Working Tree
 ```bash
 Preview removable files:							git clean -n
 
@@ -109,7 +109,7 @@ Remove untracked files:								git clean -f
 Remove untracked files and directories:				git clean -fd
 ```
 
-Tags ---------
+### Tags
 ```bash
 List tags:											git tag
 
@@ -118,7 +118,7 @@ Create a version tag:								git tag v0.5.0
 Push tags:											git push --tags
 ```
 
-Typical Daily Workflow ---------
+## Typical Daily Workflow
 ```bash
 git pull --rebase origin main
 git status --short
@@ -130,7 +130,7 @@ git push origin main
 git status
 ```
 
-# Good Practice
+### Good Practice
 ```text
 Make small, focused commits.
 Review changes before staging.
