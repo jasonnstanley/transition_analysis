@@ -1,4 +1,176 @@
 # Git and Shell History Tips
+# Git Tips
+
+This document is a practical reference for the Git commands used during development of the Transition Analysis Toolkit.
+
+It is not intended to teach Git from first principles. Instead, it provides a concise collection of commands that are frequently used during normal development.
+
+---
+
+# Repository Status
+
+Current repository status:
+
+```bash
+git status
+
+Compact status:										git status --short
+
+Show current branch:								git branch
+
+
+Reviewing Changes ---------
+
+Review all unstaged changes:						git diff
+
+Review a specific file:								git diff README.md
+
+Review staged changes:								git diff --staged
+
+Summarise changes:									git diff --stat
+
+
+Staging Files ---------
+
+Stage one file:										git add README.md
+
+Stage multiple files:								git add file1 file2
+
+Stage everything:									git add .
+
+Interactive staging:								git add -p
+
+
+Commiting Changes ---------
+
+Create a commit:									git commit -m "Describe the completed change"
+
+Amend the previous commit message:					git commit --amend
+
+
+Viewing History ---------
+
+Compact history:									git log --oneline
+
+Graph view:											git log --oneline --graph --decorate
+
+Recent history:										git log -10
+
+Find previous commits:								git log --grep="README"
+
+
+Searching Command History ---------
+
+Search terminal history:							history | grep git
+
+Search for previous README commands:				history | grep README
+
+Reverse search:										Ctrl+r
+
+Repeat previous command:							!!
+
+Repeat previous command beginning with "git":		!git
+
+
+Inspecting Files ---------
+
+List tracked files:									git ls-files
+
+Show ignored files:									git status --ignored
+
+Show repository root:								git rev-parse --show-toplevel
+
+
+Synchronising ---------
+
+Download latest changes:							git fetch
+
+Update local repository:							git pull --rebase origin main
+
+Upload commits:										git push origin main
+
+
+Undoing Mistakes Safely ---------
+
+Unstage a file:										git restore --staged README.md
+
+Discard unstaged changes:							git restore README.md
+
+Restore every modified file:						git restore .
+
+
+Cleaning the Working Tree ---------
+
+Preview removable files:							git clean -n
+
+Remove untracked files:								git clean -f
+
+Remove untracked files and directories:				git clean -fd
+
+
+Tags ---------
+
+List tags:											git tag
+
+Create a version tag:								git tag v0.5.0
+
+Push tags:											git push --tags
+
+
+Typical Daily Workflow ---------
+git pull --rebase origin main
+git status --short
+git diff
+git add README.md
+git diff --staged
+git commit -m "Describe the completed change"
+git push origin main
+git status
+
+
+# Good Practice
+```text
+Make small, focused commits.
+Review changes before staging.
+Push completed work before changing computers.
+Keep the main branch in a clean state.
+Avoid committing generated files unless they are intended to be version controlled.
+Prefer reproducible builds over manual edits to generated outputs.
+```
+
+I think this complements `DeveloperWorkflow.md` well. The workflow document explains **how to work**, while `GitTips.md` is the **terminal-side reference** you can quickly search or keep open in another window.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This page records useful commands for locating previous work and understanding the difference between shell history and Git history.
 
