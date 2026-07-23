@@ -1,4 +1,4 @@
-cat > docs/DeveloperWorkflow.md <<'EOF'
+
 # Developer Workflow
 
 This document describes the standard development workflow for the Transition Analysis Toolkit.

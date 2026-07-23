@@ -20,7 +20,12 @@ from python.report_utils import (
     validate_columns,
 )
 
-from python.config import REPORTS, FIGURES
+from python.config import (
+    REPORTS,
+    REPORT_DATA,
+    REPORT_TABLES,
+    FIGURES,
+)
 
 
 FEATURE_GROUPS = {
@@ -77,7 +82,7 @@ def load_feature_importance() -> pd.DataFrame:
     Load the long-format tuned feature-importance table.
     """
 
-    filename = REPORTS / "tuned_feature_importance_long.csv"
+    filename = REPORT_DATA / "tuned_feature_importance_long.csv"
 
     if not filename.exists():
         raise FileNotFoundError(
@@ -321,8 +326,8 @@ def save_dataframe(
     selection of columns as LaTeX.
     """
 
-    csv_file = REPORTS / csv_name
-    tex_file = REPORTS / tex_name
+    csv_file = REPORT_DATA / csv_name
+    tex_file = REPORT_TABLES / tex_name
 
     # Preserve the complete machine-readable report.
     df.to_csv(

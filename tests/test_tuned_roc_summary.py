@@ -6,7 +6,7 @@ import math
 import pandas as pd
 
 
-ROC_SUMMARY = Path("reports/tuned_roc_summary.csv")
+ROC_SUMMARY = Path("reports/data/tuned_roc_summary.csv")
 
 EXPECTED = {
     ("Decision Tree — With Risk", "With Risk Index"):

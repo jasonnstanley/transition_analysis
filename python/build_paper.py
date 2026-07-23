@@ -17,9 +17,9 @@ OUTPUT_PDF = BUILD_DIR / "main.pdf"
 AUX_FILE = BUILD_DIR / "main.aux"
 
 REQUIRED_INPUTS = [
-    PROJECT_ROOT / "reports" / "tuned_roc_summary.tex",
-    PROJECT_ROOT / "reports" / "grouped_feature_importance.tex",
-    PROJECT_ROOT / "reports" / "feature_rankings.tex",
+    PROJECT_ROOT / "reports" / "tables" / "tuned_roc_summary.tex",
+    PROJECT_ROOT / "reports" / "tables" / "grouped_feature_importance.tex",
+    PROJECT_ROOT / "reports" / "tables" / "feature_rankings.tex",
     PROJECT_ROOT / "paper" / "chapters" / "introduction.tex",
     PROJECT_ROOT / "paper" / "chapters" / "methodology.tex",
     PROJECT_ROOT / "paper" / "chapters" / "results.tex",

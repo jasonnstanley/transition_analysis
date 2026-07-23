@@ -1,7 +1,7 @@
 {
     "toolkit": "Transition Analysis Toolkit",
-    "build_time": "2026-07-21T14:31:10",
-    "git_commit": "80c6cf0bdafee079273e6dec7b76a22d4872d1f9",
+    "build_time": "2026-07-23T15:58:16",
+    "git_commit": "1a94acb4988e3ca3fce7f4560e7fb203b5f06b5e",
     "python": "3.14.5",
     "platform": "Windows-11-10.0.26200-SP0",
     "status": "SUCCESS"

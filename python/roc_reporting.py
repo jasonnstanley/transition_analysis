@@ -15,21 +15,22 @@ from python.tree_data import TreeDataset
 from python.tree_tuning import TunedTreeResult
 
 
-DEFAULT_REPORT_DIRECTORY = Path("reports")
+DEFAULT_REPORT_DATA_DIRECTORY = Path("reports/data")
+DEFAULT_REPORT_TABLE_DIRECTORY = Path("reports/tables")
 DEFAULT_FIGURE_DIRECTORY = Path("figures")
 
 DEFAULT_ROC_POINTS_CSV = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_DATA_DIRECTORY
     / "tuned_roc_curve_points.csv"
 )
 
 DEFAULT_ROC_SUMMARY_CSV = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_DATA_DIRECTORY
     / "tuned_roc_summary.csv"
 )
 
 DEFAULT_ROC_SUMMARY_TEX = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_TABLE_DIRECTORY
     / "tuned_roc_summary.tex"
 )
 

@@ -7,7 +7,7 @@ import math
 import pandas as pd
 
 
-REPORT = Path("reports/grouped_feature_importance.csv")
+REPORT = Path("reports/data/grouped_feature_importance.csv")
 
 EXPECTED_COLUMNS = [
     "group_rank",

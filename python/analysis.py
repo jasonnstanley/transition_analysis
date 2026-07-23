@@ -45,7 +45,17 @@ def main() -> None:
         "Core statistical and classification analysis",
         "python.run_models",
     )
-
+    
+    run_analysis(
+        "Baseline decision-tree and random-forest analysis",
+        "python.baseline_tree_analysis",
+    )
+    
+    run_analysis(
+        "Tuned decision-tree and random-forest analysis",
+        "python.tuned_tree_analysis",
+    )
+    
     print()
     print("✓ Canonical Python analysis completed successfully")
 

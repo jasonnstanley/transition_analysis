@@ -9,15 +9,17 @@ import pandas as pd
 from python.tree_models import TreeModelResult
 
 
-DEFAULT_REPORT_DIRECTORY = Path("reports")
+DEFAULT_REPORT_DATA_DIRECTORY = Path("reports/data")
+DEFAULT_REPORT_TABLE_DIRECTORY = Path("reports/tables")
+
 DEFAULT_COMPARISON_CSV = (
-    DEFAULT_REPORT_DIRECTORY / "baseline_tree_models.csv"
+    DEFAULT_REPORT_DATA_DIRECTORY / "baseline_tree_models.csv"
 )
 DEFAULT_COMPARISON_TEX = (
-    DEFAULT_REPORT_DIRECTORY / "baseline_tree_models.tex"
+    DEFAULT_REPORT_TABLE_DIRECTORY / "baseline_tree_models.tex"
 )
 DEFAULT_IMPORTANCE_CSV = (
-    DEFAULT_REPORT_DIRECTORY / "baseline_feature_importance.csv"
+    DEFAULT_REPORT_DATA_DIRECTORY / "baseline_feature_importance.csv"
 )
 
 

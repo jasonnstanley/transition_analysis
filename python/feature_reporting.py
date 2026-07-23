@@ -9,23 +9,23 @@ import pandas as pd
 from python.tree_tuning import TunedTreeResult
 
 
-DEFAULT_REPORT_DIRECTORY = Path("reports")
+DEFAULT_REPORT_DATA_DIRECTORY = Path("reports/data")
+DEFAULT_REPORT_TABLE_DIRECTORY = Path("reports/tables")
 
 DEFAULT_TUNED_IMPORTANCE_LONG = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_DATA_DIRECTORY
     / "tuned_feature_importance_long.csv"
 )
 
 DEFAULT_TUNED_IMPORTANCE_WIDE = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_DATA_DIRECTORY
     / "tuned_feature_importance_wide.csv"
 )
 
 DEFAULT_TUNED_IMPORTANCE_TEX = (
-    DEFAULT_REPORT_DIRECTORY
+    DEFAULT_REPORT_TABLE_DIRECTORY
     / "tuned_feature_importance.tex"
 )
-
 
 def tuned_model_label(
     tuned_result: TunedTreeResult,

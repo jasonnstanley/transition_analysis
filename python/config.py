@@ -28,6 +28,9 @@ PROCESSED_DATA = DATA / "processed"
 FIGURES = PROJECT_ROOT / "figures"
 OUTPUTS = PROJECT_ROOT / "outputs"
 REPORTS = PROJECT_ROOT / "reports"
+REPORT_DATA = REPORTS / "data"
+REPORT_TABLES = REPORTS / "tables"
+
 PAPER = PROJECT_ROOT / "paper"
 NOTEBOOKS = PROJECT_ROOT / "notebooks"
 
@@ -35,6 +38,8 @@ for directory in (
     FIGURES,
     OUTPUTS,
     REPORTS,
+    REPORT_DATA,
+    REPORT_TABLES,
 ):
     directory.mkdir(exist_ok=True)
 

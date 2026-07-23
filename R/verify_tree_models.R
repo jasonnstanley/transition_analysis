@@ -11,7 +11,11 @@ project_root <- normalizePath(
   mustWork = TRUE
 )
 
-reports_dir <- file.path(project_root, "reports")
+reports_dir <- file.path(
+  project_root,
+  "reports",
+  "data"
+)
 
 model_file <- file.path(
   reports_dir,
