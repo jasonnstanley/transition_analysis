@@ -76,6 +76,39 @@ FEATURE_GROUPS = {
     "secondary_school_mark_band_90+":
         "Secondary school achievement",
 }
+FEATURE_LABELS = {
+    "risk_index": "Composite risk index",
+    "has_previous_current_subject_attempt":
+        "Previous attempt at current subject",
+    "previous_current_subject_failure":
+        "Previous failure in current subject",
+    "has_preparatory_subject":
+        "Prior preparatory mathematics",
+    "prior_preparatory_subject_failure":
+        "Previous preparatory mathematics failure",
+    "prior_preparatory_subject_pass":
+        "Previous preparatory mathematics pass",
+    "international_student":
+        "International student",
+    "secondary_preparation_level_Advanced":
+        "Secondary mathematics: Advanced",
+    "secondary_preparation_level_Ext1":
+        "Secondary mathematics: Extension 1",
+    "secondary_preparation_level_Ext2":
+        "Secondary mathematics: Extension 2",
+    "secondary_preparation_level_Other":
+        "Secondary mathematics: Other",
+    "secondary_preparation_level_Standard":
+        "Secondary mathematics: Standard",
+    "secondary_school_mark_band_<70":
+        "Secondary school mark below 70",
+    "secondary_school_mark_band_70-79":
+        "Secondary school mark 70–79",
+    "secondary_school_mark_band_80-89":
+        "Secondary school mark 80–89",
+    "secondary_school_mark_band_90+":
+        "Secondary school mark 90 or above",
+}
 
 def load_feature_importance() -> pd.DataFrame:
     """
@@ -313,6 +346,32 @@ def build_grouped_summary(
 
     return summary    
 
+def build_interpretation_narrative(
+    grouped_summary: pd.DataFrame,
+) -> str:
+    """
+    Generate a concise research interpretation from grouped importance.
+    """
+
+    ranked = grouped_summary.sort_values(
+        "average_across_models",
+        ascending=False,
+    ).reset_index(drop=True)
+
+    first = ranked.iloc[0]["feature_group"]
+    second = ranked.iloc[1]["feature_group"]
+    third = ranked.iloc[2]["feature_group"]
+    lowest = ranked.iloc[-1]["feature_group"]
+
+    return (
+        f"Across the tuned tree-based models, {first.lower()} "
+        f"showed the greatest average predictive importance. "
+        f"This was followed by the {second.lower()} and "
+        f"{third.lower()}. "
+        f"In contrast, {lowest.lower()} made the smallest "
+        f"average contribution across models."
+    )
+
 def save_dataframe(
     df: pd.DataFrame,
     csv_name: str,
@@ -367,7 +426,13 @@ def plot_individual_feature_importance(
     """
 
     plot_df = rankings.head(10).copy()
-
+    
+    plot_df["feature_label"] = (
+        plot_df["feature"]
+            .map(FEATURE_LABELS)
+            .fillna(plot_df["feature"])
+    )
+    
     plot_df = plot_df.sort_values(
         "included_model_average",
         ascending=True,
@@ -376,7 +441,7 @@ def plot_individual_feature_importance(
     fig, ax = plt.subplots(figsize=(10, 7))
 
     ax.barh(
-        plot_df["feature"],
+        plot_df["feature_label"],
         plot_df["included_model_average"],
     )
 
@@ -475,9 +540,13 @@ def main() -> None:
     print("-" * 72)
     print()
     print(rankings.head(10).to_string(index=False))
-    
+
     grouped = build_grouped_importance(df)
     grouped_summary = build_grouped_summary(grouped)
+    
+    interpretation_narrative = build_interpretation_narrative(
+        grouped_summary
+    )
 
     print()
     print("-" * 72)
@@ -492,11 +561,56 @@ def main() -> None:
     print("-" * 72)
     print()
     print(grouped_summary.to_string(index=False))
-    
+    print()
+    print("-" * 72)
+    print("Interpretation narrative")
+    print("-" * 72)
+    print()
+    print(interpretation_narrative)
+    markdown_report = REPORTS / "model_interpretation.md"
 
+    markdown_report.write_text(
+        "\n".join(
+            [
+                 "# Model Interpretation",
+                 "",
+                 "## Cross-model interpretation",
+                 "",
+                 interpretation_narrative,
+                 "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    print(f"Markdown report: {markdown_report}")
+    
+    latex_report = REPORTS / "model_interpretation.tex"
+
+    latex_report.write_text(
+        "\n".join(
+            [
+#                r"\section{Model Interpretation}",
+                "",
+                interpretation_narrative,
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    print(f"LaTeX report: {latex_report}")
+    
+    rankings_for_report = rankings.copy()
+
+    rankings_for_report["feature"] = (
+        rankings_for_report["feature"]
+        .map(FEATURE_LABELS)
+        .fillna(rankings_for_report["feature"])
+    )
 
     save_dataframe(
-        rankings,
+        rankings_for_report,
             "feature_rankings.csv",
             "feature_rankings.tex",
         tex_columns=[
