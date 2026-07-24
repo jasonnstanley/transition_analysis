@@ -110,6 +110,38 @@ FEATURE_LABELS = {
         "Secondary school mark 90 or above",
 }
 
+GROUP_INTERPRETATION = {
+    "Secondary mathematics preparation":
+        "This suggests that prior secondary mathematics preparation was the strongest and most consistent predictor of success across the tuned models.",
+
+    "Composite risk measure":
+        "The composite risk measure captured multiple sources of prior academic risk, providing substantial predictive power when included.",
+
+    "Preparatory mathematics":
+        "Preparatory mathematics pathways contributed strongly, supporting their role in assisting students entering first-year mathematics.",
+
+    "Previous university performance":
+        "Previous university mathematics performance provided additional information beyond secondary school preparation.",
+
+    "Secondary school achievement":
+        "Overall secondary school achievement remained informative but contributed less than mathematics-specific preparation.",
+
+    "Student characteristics":
+        "Student demographic characteristics contributed comparatively little to prediction within these models."
+}
+
+NUMBER_WORDS = {
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+}
+
+def format_count(value: int) -> str:
+    return NUMBER_WORDS.get(value, str(value))
+
 def load_feature_importance() -> pd.DataFrame:
     """
     Load the long-format tuned feature-importance table.
@@ -357,19 +389,65 @@ def build_interpretation_narrative(
         "average_across_models",
         ascending=False,
     ).reset_index(drop=True)
-
+    
+    if len(ranked) < 4:
+        raise ValueError(
+            "At least four feature groups are required to "
+            "generate the interpretation narrative."
+        )
+    
     first = ranked.iloc[0]["feature_group"]
     second = ranked.iloc[1]["feature_group"]
     third = ranked.iloc[2]["feature_group"]
     lowest = ranked.iloc[-1]["feature_group"]
 
+    first_value = ranked.iloc[0]["average_across_models"]
+    second_value = ranked.iloc[1]["average_across_models"]
+    third_value = ranked.iloc[2]["average_across_models"]
+    
+    top_three_total = first_value + second_value + third_value
+    
+    consistency = (
+        grouped_summary.drop(columns=["group_rank", "feature_group", "average_across_models"])
+        .gt(0)
+        .sum(axis=1)
+    )
+
+    first_models = int(consistency.iloc[0])
+    second_models = int(consistency.iloc[1])
+    third_models = int(consistency.iloc[2])
+    
+    educational_interpretation = GROUP_INTERPRETATION.get(first, "")
+    
+    model_columns = [
+    column
+    for column in grouped_summary.columns
+        if column not in {
+                "group_rank",
+                "feature_group",
+                "average_across_models",
+            }
+    ]
+
+    model_count = len(model_columns)
+    
     return (
         f"Across the tuned tree-based models, {first.lower()} "
-        f"showed the greatest average predictive importance. "
-        f"This was followed by the {second.lower()} and "
-        f"{third.lower()}. "
+        f"emerged as the most influential predictor group "
+        f"(mean importance = {format_importance(first_value)}). "
+        f"This was followed by the {second.lower()} "
+        f"({second_value:.3f}) and {third.lower()} "
+        f"({third_value:.3f}). "
+        f"Together, these three groups accounted for "
+        f"{format_percentage(top_three_total)} of the average feature "
+        f"importance across the tuned models. "
+        f"{first.capitalize()} remained influential across "
+        f"all {format_count(first_models)} models, whereas the "
+        f"{second.lower()} contributed strongly but "
+        f"appeared in {format_count(second_models)} of the {format_count(model_count)} models. "
         f"In contrast, {lowest.lower()} made the smallest "
-        f"average contribution across models."
+        f"average contribution."
+        f" {educational_interpretation}"
     )
 
 def save_dataframe(
@@ -510,7 +588,14 @@ def plot_grouped_feature_importance(
 
     return output_path
     
-    
+def format_importance(value: float) -> str:
+    """Format feature importance values for publication."""
+    return f"{value:.3f}"
+
+
+def format_percentage(value: float) -> str:
+    """Format proportions as percentages for publication."""
+    return f"{value:.1%}"
     
     
     
@@ -592,7 +677,7 @@ def main() -> None:
             [
 #                r"\section{Model Interpretation}",
                 "",
-                interpretation_narrative,
+                interpretation_narrative.replace("%", r"\%"),
                 "",
             ]
         ),
