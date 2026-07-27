@@ -73,11 +73,19 @@ def main() -> int:
             [sys.executable, "-m", "python.verification"],
         ),
         (
-            "Stage 6 — Build LaTeX research paper",
+            "Stage 6 — Generate research evidence report",
+            [sys.executable, "-m", "python.research_evidence"],
+        ),
+        (
+            "Stage 7 — Research coverage",
+            [sys.executable, "-m", "python.check_research_coverage"],
+        ),
+        (
+            "Stage 8 — Build LaTeX research paper",
             [sys.executable, "-m", "python.build_paper"],
         ),
         (
-            "Stage 7 — Write build manifest",
+            "Stage 9 — Write build manifest",
             [sys.executable, "-m", "python.build_manifest"],
         ),
     ]

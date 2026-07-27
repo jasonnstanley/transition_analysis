@@ -7,7 +7,7 @@ from pathlib import Path
 
 from python.tools import find_pdflatex
 from python.tools import find_bibtex, find_pdflatex
-
+from python.research_questions import RESEARCH_QUESTIONS
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = PROJECT_ROOT / "paper"
@@ -15,6 +15,7 @@ BUILD_DIR = PAPER_DIR / "build"
 MAIN_TEX = PAPER_DIR / "main.tex"
 OUTPUT_PDF = BUILD_DIR / "main.pdf"
 AUX_FILE = BUILD_DIR / "main.aux"
+RESEARCH_QUESTIONS_TEX = PAPER_DIR / "generated" / "research_questions.tex"
 
 REQUIRED_INPUTS = [
     PROJECT_ROOT / "reports" / "tables" / "tuned_roc_summary.tex",
@@ -29,7 +30,11 @@ REQUIRED_INPUTS = [
     PROJECT_ROOT / "paper" / "bib" / "references.bib",
 ]
 
-
+# print("Research questions:")
+# for i, question in enumerate(RESEARCH_QUESTIONS, start=1):
+#    print(f"  RQ{i}: {question}")
+    
+    
 def check_inputs() -> None:
     """Verify that the paper and generated report inputs exist."""
 
@@ -55,6 +60,29 @@ def check_inputs() -> None:
             f"{missing_text}"
         )
 
+def write_research_questions_tex() -> None:
+    """Generate the LaTeX research questions list."""
+
+    RESEARCH_QUESTIONS_TEX.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    lines = [
+        r"\begin{enumerate}",
+    ]
+
+    for question in RESEARCH_QUESTIONS:
+        lines.append(rf"\item {question}")
+
+    lines.append(r"\end{enumerate}")
+
+    RESEARCH_QUESTIONS_TEX.write_text(
+        "\n".join(lines) + "\n",
+        encoding="utf-8",
+    )
+
+# print(f"Generated: {RESEARCH_QUESTIONS_TEX}")
 
 def run_pdflatex(pass_number: int) -> None:
     """Run one pdfLaTeX compilation pass."""
@@ -154,7 +182,8 @@ def main() -> None:
     print(f"Build folder : {BUILD_DIR}")
 
     check_inputs()
-
+    write_research_questions_tex()
+    
     BUILD_DIR.mkdir(
         parents=True,
         exist_ok=True,

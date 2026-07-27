@@ -1,13 +1,13 @@
 # Transition Analysis Toolkit
 ## Independent Verification Report
 
-**Generated:** 2026-07-24 15:26:59
+**Generated:** 2026-07-27 14:19:02
 
 **R version:** R version 4.6.1 (2026-06-24 ucrt)
 
 **Research dataset modified:** 2026-07-13 15:56:37
 
-**Canonical split modified:** 2026-07-24 15:25:07
+**Canonical split modified:** 2026-07-27 14:17:11
 
 **Overall verification status:** PASS
 
