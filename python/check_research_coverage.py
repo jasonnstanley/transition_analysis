@@ -41,14 +41,14 @@ def main() -> None:
                 
         question = RESEARCH_PROGRAM[rq]
         
-        status = "PASS" if evidence > 0 else "PENDING"
-        
-        if evidence == 0:
+        status = "PASS" if details.has_evidence else "PENDING"
+
+        if not details.has_evidence:
             pending_questions.append(rq)
             
         print(
-            f"{rq}: {status} "
-            f"({evidence} linked outputs)"
+            f"{rq}: {details.status} "
+            f"{details.summary}"
         )
         print(f"  {question}")
         

@@ -37,10 +37,10 @@ def main() -> None:
             details.count
         )
 
-        status = details.status
+        
         
         lines.append(f"## {rq}")
-        lines.append(f"**Status:** {status}")
+        lines.append(f"**Status:** {details.status}")
         lines.append("")
         lines.append("")
         lines.append(question)
@@ -64,7 +64,7 @@ def main() -> None:
         
         print()
         print(
-            f"{rq} [{status}]: "
+            f"{rq} [{details.status}]: "
             f"{question}"
         )
 

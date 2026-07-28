@@ -597,7 +597,48 @@ def format_percentage(value: float) -> str:
     """Format proportions as percentages for publication."""
     return f"{value:.1%}"
     
-    
+def write_interpretation_values(
+    grouped_summary: pd.DataFrame,
+) -> Path:
+    """
+    Export calculated interpretation values as reusable LaTeX commands.
+    """
+
+    ranked = grouped_summary.sort_values(
+        "average_across_models",
+        ascending=False,
+    ).reset_index(drop=True)
+
+    first = ranked.iloc[0]
+    second = ranked.iloc[1]
+    third = ranked.iloc[2]
+    lowest = ranked.iloc[-1]
+
+    top_three_total = (
+        first["average_across_models"]
+        + second["average_across_models"]
+        + third["average_across_models"]
+    )
+
+    output_path = REPORT_DATA / "model_interpretation_values.tex"
+
+    latex_commands = [
+        rf"\newcommand{{\TopFeatureGroup}}{{{first['feature_group']}}}",
+        rf"\newcommand{{\TopFeatureMean}}{{{format_importance(first['average_across_models'])}}}",
+        rf"\newcommand{{\SecondFeatureGroup}}{{{second['feature_group']}}}",
+        rf"\newcommand{{\SecondFeatureMean}}{{{format_importance(second['average_across_models'])}}}",
+        rf"\newcommand{{\ThirdFeatureGroup}}{{{third['feature_group']}}}",
+        rf"\newcommand{{\ThirdFeatureMean}}{{{format_importance(third['average_across_models'])}}}",
+        rf"\newcommand{{\LowestFeatureGroup}}{{{lowest['feature_group']}}}",
+        rf"\newcommand{{\TopThreeImportance}}{{{format_percentage(top_three_total).replace('%', r'\%')}}}",
+    ]
+
+    output_path.write_text(
+        "\n".join(latex_commands) + "\n",
+        encoding="utf-8",
+    )
+
+    return output_path    
     
     
 def main() -> None:
@@ -628,7 +669,9 @@ def main() -> None:
 
     grouped = build_grouped_importance(df)
     grouped_summary = build_grouped_summary(grouped)
-    
+    interpretation_values = write_interpretation_values(
+        grouped_summary
+    )
     interpretation_narrative = build_interpretation_narrative(
         grouped_summary
     )
@@ -685,6 +728,7 @@ def main() -> None:
     )
 
     print(f"LaTeX report: {latex_report}")
+    print(f"Interpretation values: {interpretation_values}")
     
     rankings_for_report = rankings.copy()
 

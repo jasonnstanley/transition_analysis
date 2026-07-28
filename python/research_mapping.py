@@ -21,7 +21,18 @@ RESEARCH_MAPPING = {
         ],
     ),
 
-    "RQ2": ResearchEvidence(),
+    "RQ2": ResearchEvidence(
+        tables=[
+            "feature_rankings.tex",
+            "grouped_feature_importance.tex",
+        ],
+        figures=[
+            "fig_tuned_feature_importance_grouped.png",
+        ],
+        narrative=[
+            "model_interpretation.tex",
+        ],
+    ),
 
     "RQ3": ResearchEvidence(),
 }
