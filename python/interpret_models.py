@@ -620,18 +620,21 @@ def write_interpretation_values(
         + third["average_across_models"]
     )
 
-    output_path = REPORT_DATA / "model_interpretation_values.tex"
 
+    output_path = Path("paper/generated/model_values.tex")
+
+    output_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+    
     latex_commands = [
-        rf"\newcommand{{\TopFeatureGroup}}{{{first['feature_group']}}}",
-        rf"\newcommand{{\TopFeatureMean}}{{{format_importance(first['average_across_models'])}}}",
-        rf"\newcommand{{\SecondFeatureGroup}}{{{second['feature_group']}}}",
-        rf"\newcommand{{\SecondFeatureMean}}{{{format_importance(second['average_across_models'])}}}",
-        rf"\newcommand{{\ThirdFeatureGroup}}{{{third['feature_group']}}}",
-        rf"\newcommand{{\ThirdFeatureMean}}{{{format_importance(third['average_across_models'])}}}",
-        rf"\newcommand{{\LowestFeatureGroup}}{{{lowest['feature_group']}}}",
-        rf"\newcommand{{\TopThreeImportance}}{{{format_percentage(top_three_total).replace('%', r'\%')}}}",
+        rf"\newcommand{{\SecondaryMathImportance}}{{{format_importance(first['average_across_models'])}}}",
+        rf"\newcommand{{\CompositeRiskImportance}}{{{format_importance(second['average_across_models'])}}}",
+        rf"\newcommand{{\PreparatoryMathImportance}}{{{format_importance(third['average_across_models'])}}}",
+        rf"\newcommand{{\TopThreeImportance}}{{{top_three_total * 100:.1f}}}",
     ]
+
 
     output_path.write_text(
         "\n".join(latex_commands) + "\n",
@@ -786,3 +789,21 @@ def main() -> None:
     
 if __name__ == "__main__":
     main()
+    
+    
+    
+    
+    
+#   output_path = REPORT_DATA / "model_interpretation_values.tex"
+
+'''    latex_commands = [
+        rf"\newcommand{{\TopFeatureGroup}}{{{first['feature_group']}}}",
+        rf"\newcommand{{\TopFeatureMean}}{{{format_importance(first['average_across_models'])}}}",
+        rf"\newcommand{{\SecondFeatureGroup}}{{{second['feature_group']}}}",
+        rf"\newcommand{{\SecondFeatureMean}}{{{format_importance(second['average_across_models'])}}}",
+        rf"\newcommand{{\ThirdFeatureGroup}}{{{third['feature_group']}}}",
+        rf"\newcommand{{\ThirdFeatureMean}}{{{format_importance(third['average_across_models'])}}}",
+        rf"\newcommand{{\LowestFeatureGroup}}{{{lowest['feature_group']}}}",
+        rf"\newcommand{{\TopThreeImportance}}{{{format_percentage(top_three_total).replace('%', r'\%')}}}",
+    ]
+'''    

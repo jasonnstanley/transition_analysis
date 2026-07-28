@@ -1,4 +1,37 @@
-
+% ============================================================================
+% Discussion
+%
+% Purpose
+% -------
+% Explain what the results mean.
+%
+% Reader should leave knowing:
+%   • why the findings matter
+%   • how they compare with previous research
+%   • educational implications
+%   • strengths and limitations
+%
+% Do NOT:
+%   • repeat the Results
+%   • introduce new analyses
+%
+% Transition:
+% Lead naturally to the Conclusion.
+% ============================================================================
 
 
 \section{Discussion}
+
+The results of this study provide new insights into the factors associated with successful transition into first-stage university mathematics. 
+By combining reproducible analytical methods with interpretable machine learning models, the analysis extends beyond prediction alone to examine 
+the relative importance and consistency of the variables associated with student success. This discussion considers these findings in the context 
+of previous research, reflects on their educational significance, and identifies implications for both institutional practice and future research.
+
+As demonstrated in Section~\ref{sec:feature_importance}, secondary mathematics preparation emerged as the strongest and most influential predictor group 
+across the tuned models, with a mean feature importance of \SecondaryMathImportance. Composite risk (\CompositeRiskImportance) and preparatory 
+mathematics (\PreparatoryMathImportance) were the next most influential predictor groups. Collectively, these three groups accounted for \TopThreeImportance\% of 
+the average feature importance, indicating that measures of prior mathematical preparation dominated the predictive performance of the evaluated models. 
+Furthermore, the consistency of the feature rankings presented in Section~\ref{sec:feature_rankings} showed that secondary mathematics preparation remained 
+influential across all \TunedModelCount\ tuned models, whereas the composite risk measure contributed strongly but appeared in only two models. 
+Together, these findings provide robust evidence that students' secondary mathematical preparation was the strongest and most consistent predictor of success in this cohort.
+

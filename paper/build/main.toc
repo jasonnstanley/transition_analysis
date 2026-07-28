@@ -1,11 +1,20 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {paragraph}{O}{2}{section*.2}%
+\contentsline {paragraph}{T}{2}{section*.3}%
 \contentsline {subsection}{\numberline {1.1}Research Questions}{2}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Methodology}{2}{section.2}%
-\contentsline {section}{\numberline {3}Results}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Model Performance}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Feature Importance}{2}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Feature Rankings}{3}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Model Interpretation}{3}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Discussion}{3}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{3}{section.5}%
-\contentsline {section}{\numberline {A}Supplementary Material}{3}{appendix.A}%
+\contentsline {subsection}{\numberline {2.1}Research Workflow}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Research Dataset}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Variables}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Statistical Analysis}{3}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Machine Learning Models}{3}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Independent Verification}{4}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Automated Reporting}{4}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Results}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Model Performance}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Feature Importance}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Feature Rankings}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Model Interpretation}{5}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Discussion}{5}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{6}{section.5}%
+\contentsline {section}{\numberline {A}Supplementary Material}{6}{appendix.A}%
