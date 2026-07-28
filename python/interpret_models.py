@@ -620,6 +620,17 @@ def write_interpretation_values(
         + third["average_across_models"]
     )
 
+    model_columns = [
+        column
+        for column in grouped_summary.columns
+        if column not in {
+            "group_rank",
+            "feature_group",
+            "average_across_models",
+        }
+    ]
+
+    model_count = len(model_columns)    
 
     output_path = Path("paper/generated/model_values.tex")
 
@@ -633,6 +644,8 @@ def write_interpretation_values(
         rf"\newcommand{{\CompositeRiskImportance}}{{{format_importance(second['average_across_models'])}}}",
         rf"\newcommand{{\PreparatoryMathImportance}}{{{format_importance(third['average_across_models'])}}}",
         rf"\newcommand{{\TopThreeImportance}}{{{top_three_total * 100:.1f}}}",
+        rf"\newcommand{{\TunedModelCount}}{{{model_count}}}",
+        rf"\newcommand{{\TunedModelCountWord}}{{{format_count(model_count)}}}",
     ]
 
 
