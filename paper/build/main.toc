@@ -1,31 +1,31 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Research Questions}{2}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Methodology}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Research Workflow}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Research Dataset}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Variables}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Statistical Analysis}{3}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Machine Learning Models}{3}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Independent Verification}{4}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Automated Reporting}{4}{subsection.2.7}%
-\contentsline {section}{\numberline {3}Results}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Model Performance}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Feature Importance}{5}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Feature Rankings}{5}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Model Interpretation}{5}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Discussion}{5}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{6}{section.5}%
-\contentsline {section}{\numberline {A}A Brief Primer on Interpretable Machine Learning for Educational Research}{7}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Why Use Machine Learning in Educational Research?}{7}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Prediction and Explanation}{7}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Decision Trees}{7}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Random Forests}{8}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Feature Importance}{8}{subsection.A.5}%
-\contentsline {subsection}{\numberline {A.6}Grouped Feature Importance}{9}{subsection.A.6}%
-\contentsline {subsection}{\numberline {A.7}Training and Test Data}{10}{subsection.A.7}%
-\contentsline {subsection}{\numberline {A.8}Cross-Validation}{10}{subsection.A.8}%
-\contentsline {subsection}{\numberline {A.9}Hyperparameter Tuning}{11}{subsection.A.9}%
-\contentsline {subsection}{\numberline {A.10}ROC Curves and Model Evaluation}{11}{subsection.A.10}%
-\contentsline {subsection}{\numberline {A.11}Why Statistical Models and Machine Learning Were Both Used}{12}{subsection.A.11}%
-\contentsline {subsection}{\numberline {A.12}Reproducible Computational Workflows}{12}{subsection.A.12}%
-\contentsline {section}{\numberline {A}Supplementary Material}{13}{appendix.A}%
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Research Questions}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Methodology}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Research Workflow}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Research Dataset}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Variables}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Statistical Analysis}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Machine Learning Models}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Independent Verification}{5}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Automated Reporting}{5}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Results}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Model Performance}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Feature Importance}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Feature Rankings}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Model Interpretation}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Discussion}{8}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%
+\contentsline {section}{\numberline {A}A Brief Primer on Interpretable Machine Learning for Educational Research}{11}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Why Use Machine Learning in Educational Research?}{11}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Prediction and Explanation}{11}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Decision Trees}{11}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Random Forests}{12}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Feature Importance}{12}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Grouped Feature Importance}{13}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Training and Test Data}{14}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}Cross-Validation}{14}{subsection.A.8}%
+\contentsline {subsection}{\numberline {A.9}Hyperparameter Tuning}{15}{subsection.A.9}%
+\contentsline {subsection}{\numberline {A.10}ROC Curves and Model Evaluation}{15}{subsection.A.10}%
+\contentsline {subsection}{\numberline {A.11}Why Statistical Models and Machine Learning Were Both Used}{16}{subsection.A.11}%
+\contentsline {subsection}{\numberline {A.12}Reproducible Computational Workflows}{16}{subsection.A.12}%
+\contentsline {section}{\numberline {A}Supplementary Material}{17}{appendix.A}%

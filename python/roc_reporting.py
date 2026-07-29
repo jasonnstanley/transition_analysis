@@ -13,7 +13,7 @@ from python.feature_reporting import tuned_model_label
 from python.ml_split import DataSplit, apply_split
 from python.tree_data import TreeDataset
 from python.tree_tuning import TunedTreeResult
-
+from python.utils.text import number_to_word
 
 DEFAULT_REPORT_DATA_DIRECTORY = Path("reports/data")
 DEFAULT_REPORT_TABLE_DIRECTORY = Path("reports/tables")
@@ -39,6 +39,10 @@ DEFAULT_ROC_FIGURE = (
     / "fig_tuned_tree_roc_comparison.png"
 )
 
+DEFAULT_ROC_VALUES_TEX = (
+    Path("paper/generated")
+    / "roc_values.tex"
+)
 
 class RocReportingError(ValueError):
     """Raised when ROC reporting cannot be completed safely."""
@@ -237,7 +241,40 @@ def write_roc_summary_latex(
 
     return path
 
+def write_roc_values_latex(
+    dataframe: pd.DataFrame,
+    output_path: str | Path = DEFAULT_ROC_VALUES_TEX,
+) -> Path:
+    """Write reusable ROC summary values as LaTeX commands."""
 
+    path = Path(output_path)
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    best = dataframe.iloc[0]
+    lowest = dataframe.iloc[-1]
+    
+    model_count = len(dataframe)
+    
+    latex_commands = [
+        rf"\newcommand{{\HighestROCAUC}}{{{best['roc_auc']:.3f}}}",
+        rf"\newcommand{{\LowestROCAUC}}{{{lowest['roc_auc']:.3f}}}",
+        rf"\newcommand{{\BestROCModel}}{{{best['model']}}}",
+        rf"\newcommand{{\BestROCAUC}}{{{best['roc_auc']:.3f}}}",
+        rf"\newcommand{{\TunedROCModelCount}}{{{model_count}}}",
+        rf"\newcommand{{\TunedROCModelCountWord}}{{{number_to_word(model_count)}}}",
+    ]
+
+    path.write_text(
+        "\n".join(latex_commands) + "\n",
+        encoding="utf-8",
+    )
+
+    return path
+    
 def plot_roc_comparison(
     *,
     curve_points: pd.DataFrame,
@@ -361,7 +398,7 @@ def write_tuned_roc_reports(
     without_risk: TreeDataset,
     with_risk: TreeDataset,
     split: DataSplit,
-) -> tuple[Path, Path, Path, Path]:
+) -> tuple[Path, Path, Path, Path, Path]:
     """Generate all tuned ROC reports and the comparison figure."""
 
     dataset_lookup = build_dataset_lookup(
@@ -388,7 +425,11 @@ def write_tuned_roc_reports(
     latex_path = write_roc_summary_latex(
         summary
     )
-
+    
+    values_path = write_roc_values_latex(
+        summary
+    )
+    
     figure_path = plot_roc_comparison(
         curve_points=curve_points,
         summary=summary,
@@ -398,5 +439,6 @@ def write_tuned_roc_reports(
         points_path,
         summary_path,
         latex_path,
+        values_path,
         figure_path,
     )

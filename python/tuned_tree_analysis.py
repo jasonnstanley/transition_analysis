@@ -251,6 +251,7 @@ def main() -> None:
         roc_points_path,
         roc_summary_path,
         roc_tex_path,
+        roc_values_path,
         roc_figure_path,
     ) = write_tuned_roc_reports(
         tuned_results=tuned_results,

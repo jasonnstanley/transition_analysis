@@ -28,7 +28,10 @@
 
 \section{Methodology} 
 
-This study adopted a reproducible analytical workflow to investigate factors associated with successful transition into first-year university mathematics. The workflow was designed to ensure that each stage of the analysis, from data preparation through statistical modelling, independent verification, and report generation, could be reproduced from the original research dataset using an automated build process. This approach emphasises transparency, repeatability, and traceability, allowing both analytical results and publication outputs to be generated consistently from the same underlying evidence.
+This study adopted a reproducible analytical workflow to investigate factors associated with successful transition into first-year university mathematics. 
+The workflow was designed to ensure that each stage of the analysis, from data preparation through statistical modelling, independent verification, and report 
+generation, could be reproduced from the original research dataset using an automated build process. This approach emphasises transparency, repeatability, and 
+traceability, allowing both analytical results and publication outputs to be generated consistently from the same underlying evidence.
 
 % --------------------------------------------------------------------------
 % Research workflow
@@ -40,20 +43,81 @@ This study adopted a reproducible analytical workflow to investigate factors ass
 % --------------------------------------------------------------------------
 \subsection{Research Workflow}
 
-This study followed a reproducible analytical workflow consisting of data preparation, statistical analysis, machine learning model development, independent verification using R, and automated generation of publication-ready tables, figures, and manuscript components. Each stage formed part of an integrated build process, ensuring that analytical outputs could be reproduced directly from the underlying research dataset.
+This study followed a reproducible analytical workflow consisting of data preparation, statistical analysis, machine learning model development, independent 
+verification using R, and automated generation of publication-ready tables, figures, and manuscript components. Each stage formed part of an integrated build 
+process, ensuring that analytical outputs could be reproduced directly from the underlying research dataset.
 
-\begin{figure}[ht]
-\centering
-\fbox{\parbox{0.85\textwidth}{
-\centering
-Workflow figure placeholder
+Figure~\ref{fig:workflow} summarises the reproducible analytical workflow used in this study, from preparation of the approved research dataset through 
+statistical analysis, machine learning, independent verification, and automated publication outputs.
 
-Data Preparation $\rightarrow$ Statistical Analysis $\rightarrow$
-Machine Learning $\rightarrow$ Independent Verification (R)
-$\rightarrow$ Automated Reporting
+\begin{figure}[htbp]
+\centering
+
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\centering
+
+\textbf{Institutional Source Data}
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\textbf{Data Preparation}
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\textbf{Research Dataset}
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\begin{tabular}{c@{\hspace{1.5cm}}c}
+\fbox{\parbox{0.30\textwidth}{\centering
+\textbf{Statistical Analysis}
 }}
-\caption{Overview of the reproducible analytical workflow used in this study.}
+&
+\fbox{\parbox{0.30\textwidth}{\centering
+\textbf{Machine Learning Analysis}
+}}
+\end{tabular}
+
+\vspace{0.15cm}
+
+\[
+\searrow \hspace{2.8cm} \swarrow
+\]
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\textbf{Independent Verification (R)}
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\textbf{Tables • Figures • Generated LaTeX Values}
+
+\vspace{0.15cm}
+$\downarrow$
+
+\vspace{0.15cm}
+\textbf{Publication-ready Paper}
+
+\end{minipage}
+}
+
+\caption{Reproducible analytical workflow implemented by the Transition Analysis Toolkit. Institutional data are transformed into an approved 
+de-identified research dataset before parallel statistical and machine learning analyses are independently verified in R. Automated generation 
+of tables, figures, LaTeX variables, and manuscript content ensures consistency between the analytical outputs and the final publication.}
+
 \label{fig:workflow}
+
 \end{figure}
 
 

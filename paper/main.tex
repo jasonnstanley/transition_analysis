@@ -22,7 +22,7 @@
 
 
 \title{Transition Analysis Toolkit\\
-A Reproducible Analysis of Student Transition Pathways}
+A Reproducible Framework for Analysing Student Transition Pathways}
 
 \author{Jason Stanley}
 
@@ -32,11 +32,30 @@ A Reproducible Analysis of Student Transition Pathways}
 
 \maketitle
 
-\tableofcontents
+\begin{abstract}
+
+Student transition into first-year university mathematics remains a significant challenge for higher education institutions, 
+with differences in prior mathematical preparation strongly influencing subsequent academic success. This study investigates 
+factors associated with successful transition into a first-stage undergraduate mathematics subject using the Transition Analysis Toolkit, 
+a reproducible analytical framework that integrates statistical analysis, interpretable machine learning, independent verification, and 
+automated publication generation. Decision tree and random forest models were developed and compared using a reproducible analytical 
+workflow to evaluate predictive performance and the relative importance of educational predictors. Across all evaluated models, 
+secondary mathematics preparation consistently emerged as the strongest predictor of academic success, followed by composite 
+risk measures and preparatory mathematics. Beyond the empirical findings, the principal contribution of this research is the 
+development of a transparent and reproducible computational workflow that links data preparation, analysis, independent 
+verification, reporting, and manuscript generation within a single integrated framework for educational research. The 
+framework provides a reusable foundation for future educational analytics and evidence-informed investigation of student 
+transition, progression, and academic success across diverse educational contexts.
+
+\end{abstract}
+
+%\tableofcontents
 
 \newpage
 
 \input{generated/model_values.tex}
+
+\input{generated/roc_values.tex}
 
 \input{chapters/introduction}
 
@@ -50,8 +69,10 @@ A Reproducible Analysis of Student Transition Pathways}
 
 \input{chapters/appendix_ml_primer}
 
+\newpage
 \bibliographystyle{apalike}
 \bibliography{bib/references}
+\newpage
 
 \appendix
 

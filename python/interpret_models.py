@@ -27,6 +27,8 @@ from python.config import (
     FIGURES,
 )
 
+from python.utils.text import number_to_word
+
 
 FEATURE_GROUPS = {
     "risk_index": "Composite risk measure",
@@ -130,17 +132,7 @@ GROUP_INTERPRETATION = {
         "Student demographic characteristics contributed comparatively little to prediction within these models."
 }
 
-NUMBER_WORDS = {
-    1: "one",
-    2: "two",
-    3: "three",
-    4: "four",
-    5: "five",
-    6: "six",
-}
 
-def format_count(value: int) -> str:
-    return NUMBER_WORDS.get(value, str(value))
 
 def load_feature_importance() -> pd.DataFrame:
     """
@@ -442,9 +434,9 @@ def build_interpretation_narrative(
         f"{format_percentage(top_three_total)} of the average feature "
         f"importance across the tuned models. "
         f"{first.capitalize()} remained influential across "
-        f"all {format_count(first_models)} models, whereas the "
+        f"all {number_to_word(first_models)} models, whereas the "
         f"{second.lower()} contributed strongly but "
-        f"appeared in {format_count(second_models)} of the {format_count(model_count)} models. "
+        f"appeared in {number_to_word(second_models)} of the {number_to_word(model_count)} models. "
         f"In contrast, {lowest.lower()} made the smallest "
         f"average contribution."
         f" {educational_interpretation}"
@@ -645,7 +637,7 @@ def write_interpretation_values(
         rf"\newcommand{{\PreparatoryMathImportance}}{{{format_importance(third['average_across_models'])}}}",
         rf"\newcommand{{\TopThreeImportance}}{{{top_three_total * 100:.1f}}}",
         rf"\newcommand{{\TunedModelCount}}{{{model_count}}}",
-        rf"\newcommand{{\TunedModelCountWord}}{{{format_count(model_count)}}}",
+        rf"\newcommand{{\TunedModelCountWord}}{{{number_to_word(model_count)}}}",
     ]
 
 
