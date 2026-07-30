@@ -8,5 +8,5 @@ analyses and reporting pipeline.
 RESEARCH_QUESTIONS = [
     "Which factors are the strongest predictors of success in first-year university mathematics?",
     "How consistent are predictor importance rankings across multiple machine learning models?",
-    "What educational insights can be drawn from the tuned models?",
+    "What educational insights emerge from interpreting the tuned models?",
 ]
