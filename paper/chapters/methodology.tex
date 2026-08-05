@@ -43,13 +43,15 @@ repeatability, and traceability, allowing both analytical results and publicatio
 % This subsection establishes reproducibility as the guiding principle.
 % --------------------------------------------------------------------------
 \subsection{Research Workflow}
+\label{sec:workflow}
 
 We followed a reproducible analytical workflow consisting of data preparation, statistical analysis, machine learning model development, independent 
 verification using R, and automated generation of publication-ready tables, figures, and manuscript components. Each stage formed part of an integrated build 
 process, ensuring that analytical outputs could be reproduced directly from the underlying research dataset.
 
 Figure~\ref{fig:workflow} summarises the reproducible analytical workflow used in this study, from preparation of the approved research dataset through 
-statistical analysis, machine learning, independent verification, and automated publication outputs.
+statistical analysis, machine learning, independent verification, and automated publication outputs. The analytical dataset used throughout the study is 
+described in \S\ref{sec:dataset}.
 
 \begin{figure}[htbp]
 \centering
@@ -145,11 +147,12 @@ of tables, figures, LaTeX variables, and manuscript content ensures consistency 
 % The next subsection describes the variables derived from this dataset.
 % --------------------------------------------------------------------------
 \subsection{Research Dataset} 
+\label{sec:dataset}
 
 The study used de-identified institutional data from students enrolled in a first-stage undergraduate mathematics subject offered during the Autumn 2026 teaching session. 
-The dataset was prepared specifically for research purposes using an approved de-identification process that removed all personally identifying information while preserving 
-the academic and demographic characteristics required for analysis. The resulting dataset provided the foundation for all subsequent statistical analyses, machine learning 
-models, independent verification procedures, and automated reporting undertaken in this study. The variables included in the analytical dataset are described in \S\ref{sec:variables}.
+The dataset was prepared specifically for research purposes using an approved de-identification process that removed all personally identifying information and replaced 
+student identifiers with research identifiers, referred to as coding. The resulting research ready dataset retained the academic, demographic, and derived analytical variables required 
+for the statistical and machine learning analyses undertaken in this study. The variables included in the analytical dataset are described in \S\ref{sec:variables}.
 
 
 
@@ -183,8 +186,7 @@ Composite risk index & Institutional composite measure of student academic risk 
 \end{table}
 
 The variables were selected to address the research questions by representing students' prior mathematical preparation, previous university mathematics experience, and 
-institutional measures available before or during enrolment. Together, these variables provided the basis for the statistical analyses described in \S\ref{sec:statistical_analysis}. 
-The results of these analyses are presented in \S\ref{sec:results}.
+institutional measures available before or during enrolment. Together, these variables formed the basis for the statistical analyses described in \S\ref{sec:statistical_analysis}.
 
 
 
@@ -193,12 +195,13 @@ The results of these analyses are presented in \S\ref{sec:results}.
 
 We conducted statistical analyses to summarise the characteristics of the research dataset and to examine relationships between predictor variables and academic outcomes. 
 Descriptive statistics were generated to provide an overview of the cohort, while inferential analyses supported comparison of predictor variables prior to the development 
-of machine learning models~\cite{Field2013}. These analyses established a statistical baseline for interpreting the predictive models.
+of machine learning models~\cite{Field2013}. These analyses established the statistical context for the machine learning models described in \S\ref{sec:ml_models}.
 
 
 
 
 \subsection{Machine Learning Models} 
+\label{sec:ml_models}
 
 We developed machine learning models to investigate the relative importance of factors associated with successful transition into first-year university mathematics. 
 Decision tree and random forest classifiers were selected because they provide competitive predictive performance while also supporting interpretable measures of 
@@ -223,8 +226,7 @@ errors while ensuring that all reported results remained synchronised with the u
 
 
 
-The methodology described above established a transparent and reproducible analytical framework for investigating factors associated with successful transition into 
-first-year university mathematics. The following section presents the outcomes of this workflow, beginning with an evaluation of predictive model performance before 
-examining the relative importance and educational interpretation of the identified predictors.
+The methodology described above established a transparent and reproducible analytical framework for investigating factors associated with successful transition into first-year 
+university mathematics. The following section presents the results obtained using this analytical framework.
 
 

@@ -19,6 +19,10 @@
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 
+% Custom command to open links in a new tab
+\newcommand{\hrefblank}[2]{%
+  \href{#1}{\nolinkurl{#2}}%
+}
 
 
 \title{Transition Analysis Toolkit\\
@@ -26,30 +30,48 @@ A Reproducible Framework for Analysing Student Transition Pathways}
 
 \author{Jason Stanley}
 
-\date{\today}
+%\date{\today}
+\date{
+Version 0.9\\[0.5em]
+Draft for Review\\[1em]
+\today
+}
 
 \begin{document}
 
 \maketitle
 
+\setlength{\parskip}{0.4em}
+\linespread{1.10}\selectfont
+
 \begin{abstract}
 
-Student transition into first-year university mathematics remains a significant challenge for higher education institutions, 
-with differences in prior mathematical preparation strongly influencing subsequent academic success. This study investigates 
-factors associated with successful transition into a first-stage undergraduate mathematics subject using the Transition Analysis Toolkit, 
-a reproducible analytical framework that integrates statistical analysis, interpretable machine learning, independent verification, and 
-automated publication generation. Decision tree and random forest models were developed and compared using a reproducible analytical 
-workflow to evaluate predictive performance and the relative importance of educational predictors. Across all evaluated models, 
-secondary mathematics preparation consistently emerged as the strongest predictor of academic success, followed by composite 
-risk measures and preparatory mathematics. Beyond the empirical findings, the principal contribution of this research is the 
-development of a transparent and reproducible computational workflow that links data preparation, analysis, independent 
-verification, reporting, and manuscript generation within a single integrated framework for educational research. The 
-framework provides a reusable foundation for future educational analytics and evidence-informed investigation of student 
-transition, progression, and academic success across diverse educational contexts.
+Student transition into first-year university mathematics remains a significant challenge for higher education institutions, with differences in prior mathematical 
+preparation strongly influencing subsequent academic success. This study investigates factors associated with successful transition into a first-stage undergraduate 
+mathematics subject using the Transition Analysis Toolkit, a reproducible analytical framework that integrates statistical analysis, interpretable machine learning, 
+independent verification, and automated publication generation. Decision tree and random forest models were developed and compared using a reproducible analytical 
+workflow to evaluate predictive performance and the relative importance of educational predictors. Across all evaluated models, secondary mathematics preparation 
+consistently emerged as the strongest predictor of academic success, followed by composite risk measures and preparatory mathematics. Beyond the empirical findings, 
+the principal contribution of this research is the development of a reproducible workflow that links data preparation, statistical 
+modelling, machine learning, independent verification, automated reporting, and manuscript generation within an integrated framework for educational research. 
+The framework demonstrates how reproducible analytical workflows can support interpretable educational data analytics while ensuring consistency between analytical 
+outputs and published results. It provides a reusable foundation for future investigations of student transition, progression, and academic success across 
+educational contexts and supports evidence-informed institutional decision-making.
+
+
+
+\vspace{1.75em}
+
+\noindent\small\textbf{Keywords:}
+student transition; university mathematics; mathematical preparedness;
+interpretable machine learning; reproducible research
 
 \end{abstract}
 
 %\tableofcontents
+
+
+\normalsize
 
 \newpage
 
@@ -67,7 +89,7 @@ transition, progression, and academic success across diverse educational context
 
 \input{chapters/conclusion}
 
-\input{chapters/appendix_ml_primer}
+%\input{chapters/appendix_ml_primer}
 
 \newpage
 \bibliographystyle{apalike}
